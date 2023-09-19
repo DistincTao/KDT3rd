@@ -5,20 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-      // JavaScript
+      // JavaScript -> head 영역에는 스크립트 파일/링크
       /* 
       여러줄 주석
       */
-      document.write("Hello JS")
+      document.write("<h1>Hello JS! 너 참 반갑다~~~ㅎ</h1>");
+      // alert("Hello JS!!");
+      // alert("<h2>Hello JS!!</h2>");
+
+      console.log ("Hello JS~~~"); 
+      // let name = "Eugene Cho";
+      // console.log (name);
     </script>
-    <style>
-      /* CSS */
-    </style>
+    <script src="https://kit.fontawesome.com/acb94ab00c.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <!-- HTML -->
+    <h1>JavaScript 출력 방식</h1>
+    <div>1. document.write  ( )를 이용한다.</div>
+    <div>2. window.alert ( )를 이용한다.</div>
+    <div>3. console.log ( )를 이용한다.</div>
+
     <script>
-      // JavaScript
+      // JavaScript -> body 영역 끝에는 code 
+      // => 위에서부터 코드를 읽어 내려오는 과정에서 오류가 발생할 수 있음
+      let name = "Eugene Cho";
+      console.log (name);
+    </script>
+    <h3 id="yogi"></h3>
+    <div>4. 태그에 접근하여 출력한다.</div>
+    <script>
+      console.log(document.getElementById("yogi"));
+      document.getElementById("yogi").innerHTML = "<del>이름은 " + name + "입니다.</del>";
     </script>
   </body>
 </html>
