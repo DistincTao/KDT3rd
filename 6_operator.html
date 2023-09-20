@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자의 종류</title>
+    <script>
+      // 산술 연산자 
+      //  +, -, *, /, **(거듭제곱), %(나머지 연산자), //(몫 연산자) 
+      let a = 3;
+      let b = 5;
+      console.log(b % a); // 5 나누기 3의 나머지 => 2
+      console.log(a * b - a); // (3 * 5) - 3 => 12
+      console.log(b ** a); // 5 ^ 3 => 125
+      console.log(b ** a ** 4); // 5 ^ (3 ^ 4)
+      console.log((b ** a) ** 4); // (5 ^ 3) ^ 4
+
+      // 증감 연산자 ++ --
+      // 증감 연사자는 연산자의 위치에 따라서 우선순위가 달라짐
+      // 전치 연산 : ++var -> 선증감 후대입
+      // 후치 연산 : var++ -> 선대입 후증감 (var = var + 1)
+      console.log(a++); // 3
+      console.log(a); // 4
+      // console.log(++a); // 5
+      // console.log(a); // 5
+      console.log(b++ * ++a); // 5 * 5 => 25
+      console.log(a, b);
+
+      // 문제
+      let i = 1; 
+      let j = i++ + 1; // (i = 1) + 1 = 2
+      let k = ++i + 1; // (i = 3) + 1  = 4
+      console.log(i, j, k);
+
+      // 관계 연산자 : 연산의 결과가 true 또는 false가 나오게 하는 연산자
+      // > (크다), < (작다), >= (크거나 같다), <= (작거나 같다), == (같다), != (같지 않다)
+      // a = 5, b = 6
+      console.log(a > b); // false
+      console.log(a != b); // true
+      console.log(++a == b); // true
+      console.log(b % 2 == 0); // true
+  
+      // 논리 연산자 : 관계 연산자와 관계 연산자의 조합을 하는 연산자
+      // && (and 그리고) -> A && B => 수식이 모두 참일때만 참 / 수식이 하나라도 거짓이면 거짓
+      // || (or 또는) -> A || B => 수식이 하나라도 참이면 참 / 수식이 모두 거짓일 때만 거짓
+      // ! (not 부정) -> !true == false / !false == true
+      // a = 6, b = 6
+      console.log(a > b && b != 3); // false
+      console.log(a == 6 && b == 6) // true
+      console.log(a == 6 && b == 6 && b % 2 == 0) // true && true && true == true
+      console.log(a == 6 && b != 6 && b % 2 == 0) // true && false && true == false
+
+      console.log(a > 2 || b == 6) // true || true == true
+      console.log(a < 0 || b > 0) // false || true == true
+      console.log(a < 0 || b < 0) // false || false == false
+
+      console.log(!(a < 0)); // ! (false) == true
+      console.log((!a) == 0); // (!true) == false ( 0 == false / 0 외의 수는 true) => true
+      console.log(!a < 0); // false
+      console.log(!!a); // !(!true) == true
+      console.log(!!a > b); // false
+
+      // 연산자의 우선순위 : 증감 > 논리 (!) > 산술 > 관계 > 논리 (&& > ||)
+      console.log("A" > "a"); // ASCII Code 값으로 65 > 97 == false
+
+      // 대입 연산자
+      // = , += (더하고 대입), -= (빼고 대입), *= (곱하고 대입), /= (나누고 대입)
+      let result = 0;
+      result += 3;
+      console.log(result); // result = result + 3
+      result *= 2;
+      console.log(result); // result = result * 2
+      result /= 2;
+      console.log(result); // result = result / 2
+      result %= 2;
+      console.log(result); // 1
+
+      // 비교 연산자
+      // == vs === (type 까지 비교)
+      console.log( 1 == "1"); // true
+      console.log( 1 === "1"); // false
+      console.log("1" != 1); // false
+      console.log("1" !== 1); // true
+       
+      // -----------------------------------------------
+      // shift 연산자 (자리이동 연산자)
+      // 왼쪽 SHIFT 연산자 : <<
+      // 오른쪽 SHIFT 연산자 : >> 
+      a = 5; // 이진법 수 = 00101
+      // a << 2 : 10100 => 20 ==> 5 * (2 ^ 2) = 20 
+      // a >> 2 : 1 ==> 5 / (2 ^ 2)
+      console.log(a << 2);
+      console.log(a >> 2);
+
+
+
+ 
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
