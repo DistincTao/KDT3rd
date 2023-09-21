@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 추천 매뉴를 출력하는 프로그램 작성
+        // 1부터 7까지 랜덤한 수를 출력하고, 그 수가
+        // 1 짜장면 2 김치찌개 3. 돈까스 4. 햄버거 5. 떡볶이 6. 쌀국수 7. 라면
+      onload = function () {
+        // 1) 변수 선언 & 랜덤한 수를 구한다.
+        let ranNum = Math.floor(Math.random() * 7 + 1);
+        // let menues = ["짜장면", "김치찌개", "돈까스", "햄버거", "떡볶이", "쌀국수", "라면"];
+        // let imgs = ["img/jjajang.jpg", "img/kimchi.jpg", "img/donka.jpg", "img/ham.jpg", "img/dduk.jpg", "img/ssal.jpg", "img/ramen.jpg"];
+        // let ranNum = Math.floor(Math.random() * 7);
+        let lunch = "";
+        console.log(ranNum);
+        // console.log(imgs[0]);
+        // 2) 1번에서 나온 수가 어떤 음식인지 비교 판다
+        if (ranNum == 1) {
+          lunch = "짜장면";
+          lunchImg = "img/jjajang.jpg";
+        } else if (ranNum == 2) {
+          lunch = "김치찌개";
+          lunchImg = "img/kimchi.jpg";
+        } else if (ranNum == 3) {
+          lunch = "돈까스";
+          lunchImg = "img/donka.jpg";
+        } else if (ranNum == 4) {
+          lunch = "햄버거";
+          lunchImg = "img/ham.jpg";
+        } else if (ranNum == 5) {
+          lunch = "떡볶이";
+          lunchImg = "img/dduk.jpg";
+        } else if (ranNum == 6) {
+          lunch = "쌀국수";
+          lunchImg = "img/ssal.jpg";
+        } else {
+          lunch = "라면";
+          lunchImg = "img/ramen.jpg";
+        }
+
+        // if (ranNum == 0) {
+        //   lunch = menues[0];
+        //   lunchImg = imgs[0];
+        // } else if (ranNum == 1) {
+        //   lunch = menues[1];
+        //   lunchImg = imgs[1];
+        // } else if (ranNum == 2) {
+        //   lunch = menues[2];
+        //   lunchImg = imgs[2];
+        // } else if (ranNum == 3) {
+        //   lunch = menues[3];
+        //   lunchImg = imgs[3];
+        // } else if (ranNum == 4) {
+        //   lunch = menues[4];
+        //   lunchImg = imgs[4];
+        // } else if (ranNum == 5) {
+        //   lunch = menues[5];
+        //   lunchImg = imgs[5];
+        // } else {
+        //   lunch = menues[6];
+        //   lunchImg = imgs[6];
+        // }
+
+        // 3) 출력
+        document.getElementById("lunch").innerHTML = `오늘의 추천 매뉴는 ${lunch}입니다.`;
+        document.getElementById("lunchImg").src = `${lunchImg}`
+      }
+    </script>
+  </head>
+  <body>
+    <h1 class="title">오늘의 추천 매뉴</h1>
+    <div id="lunch"></div>
+    <div class="imgs">
+      <img id="lunchImg" src=""></div>    
+    <script>
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If ~ Else If 문 활용 연습</title>
+    <script>
+      // // html, css, JS 세과목의 점수를 입력받아
+      // //평균을 구하고
+      // // 평균이 60점 이상이고, 과목당 40점 이상이어야 합격
+      // // 40점 미만인 과목은 불합격이라고 출력
+      // let scoreHTML = Number(prompt("HTML 점수 입력!"));
+      // let scoreCSS = Number(prompt("CSS 점수 입력!"));
+      // let scoreJS = Number(prompt("JS 점수 입력!"));
+      // let total = scoreHTML + scoreCSS + scoreJS 
+      // let avg = total / 3;
+      // let min = 40;
+      // let max = 100;
+      // let result = "";
+      // let name = "";
+
+      // document.write (`HTML : ${scoreHTML}<br>`);
+      // document.write (`CSS : ${scoreCSS}<br>`);
+      // document.write (`JavaScript : ${scoreJS}<br>`);
+      // document.write (`Average : ${avg}<br><br>`);
+
+      // if (scoreHTML > max || scoreCSS > max || scoreJS > max || scoreHTML < 0 || scoreCSS < 0 || scoreJS < 0){
+      //   document.write("다시 입력해주세요.")
+      // } else if (avg == 100) {
+      //   result = "만점"
+      //   document.write (` ${result}입니다.<br>`);
+      // } else if (avg >=60 && (scoreHTML >= min && scoreHTML >= min && scoreJS >= min)) {
+      //   result = "합격";
+      //   document.write (` ${result}입니다.<br>`);
+      // } else {
+      //   result = "불합격";
+      //   document.write (`${result}입니다.<br>`);
+      //   if (scoreHTML < min) {
+      //     result = "과락";
+      //     name = "HTML";
+      //     document.write (`${name}이 ${scoreHTML}으로 ${result}입니다.<br>`);
+      //   } if (scoreCSS < min) {
+      //     result = "과락";
+      //     name = "CSS";
+      //     document.write (`${name}가 ${scoreCSS}으로 ${result}입니다.<br>`);
+      //   } if (scoreJS < min) {
+      //     result = "과락";
+      //     name = "JavaScript";
+      //     document.write (`${name}가 ${scoreJS}으로 ${result}입니다.<br>`);
+      //   }
+      // }
+
+      // if (avg >= 60) {
+      //   if (scoreHTML < min) { 
+      //     result = `평균" : ${avg}, HTML : ${scoreHTML}점 과락으로 불합격`;
+      //   } else if (scoreCSS < min) {
+      //     result = `평균" : ${avg}, CSS : ${scoreCSS}점 과락으로 불합격`;
+      //   } else if (scoreJS < min) {
+      //     result = `평균" : ${avg}, JS : ${scoreJS}점 과락으로 불합격`;
+      //   } else {
+      //     result = `평균 : ${avg}, 합격`;
+      //   }
+      // } else { 
+      //   result = `평균 : ${avg}, 불합격`;
+      // }
+      // document.write (`HTML : ${scoreHTML}점,  CSS : ${scoreCSS}점, JS : ${scoreJS}점, 최종 : ${result}`)
+
+    </script>
+    <style>
+      .container {
+        background-color: beige;
+        width: 1000px;
+        height: 120px;
+        display: flex;
+        justify-content: space-around;
+      }
+      .subject {
+        width: 80px;
+        height: 80px;
+        padding: 0px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+      }
+      .clear::after {
+        display: block;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container clear">
+      <div class="subject">
+        <div>HTML</div>
+        <div id="htmlScore"></div>
+      </div>  
+      <div class="subject">
+        <div>CSS</div>
+        <div id="cssScore"></div>
+      </div>
+      <div class="subject">
+        <div>JavaScript</div>
+        <div id="jsScore"></div>
+      </div>
+      <div class="subject">
+        <div>평균</div>
+        <div id="avgScore"></div>
+      </div>
+    </div>
+    <div class="pass">
+      <div id="passMsg"></div>
+    </div>
+    <div class="fail">
+      <div id="failMsg"></div>
+    </div>
+    <script>
+            // html, css, JS 세과목의 점수를 입력받아
+      //평균을 구하고
+      // 평균이 60점 이상이고, 과목당 40점 이상이어야 합격
+      // 40점 미만인 과목은 불합격이라고 출력
+      let scoreHTML = Number(60);
+      let scoreCSS = Number(30);
+      let scoreJS = Number(40);
+      // let scoreHTML = Number(prompt("HTML 점수 입력!", "80"));
+      // let scoreCSS = Number(prompt("CSS 점수 입력!", "80"));
+      // let scoreJS = Number(prompt("JS 점수 입력!", "80"));
+      let total = scoreHTML + scoreCSS + scoreJS 
+      let avg = total / 3;
+      let min = 40;
+      let max = 100;
+      let result = "";
+      let name = "";
+
+      document.getElementById("htmlScore").innerHTML = `${scoreHTML}`;
+      document.getElementById("cssScore").innerHTML = `${scoreCSS}`;
+      document.getElementById("jsScore").innerHTML = `${scoreJS}`;
+      document.getElementById("avgScore").innerHTML = `${avg}`;
+
+      if (scoreHTML > max || scoreCSS > max || scoreJS > max || scoreHTML < 0 || scoreCSS < 0 || scoreJS < 0){
+        document.write("다시 입력해주세요.")
+      } else if (avg == 100) {
+        result = "만점"
+        document.getElementById("passMsg").innerHTML =` ${result}입니다.<br>`;
+      } else if (avg >=60 && (scoreHTML >= min && scoreHTML >= min && scoreJS >= min)) {
+        result = "합격";
+        document.getElementById("passMsg").innerHTML =` ${result}입니다.<br>`;
+      } else {
+        result = "불합격";
+        document.getElementById("passMsg").innerHTML = `${result}입니다.<br>`;
+        if (scoreHTML < min) {
+          result = "과락";
+          name = "HTML";
+          document.getElementById("failMsg").innerHTML = `${name}이 ${scoreHTML}으로 ${result}입니다.<br>`;
+        } if (scoreCSS < min) {
+          result = "과락";
+          name = "CSS";
+          document.getElementById("failMsg").innerHTML = `${name}가 ${scoreCSS}으로 ${result}입니다.<br>`;
+        } if (scoreJS < min) {
+          result = "과락";
+          name = "JavaScript";
+          document.getElementById("failMsg").innerHTML = `${name}가 ${scoreJS}으로 ${result}입니다.<br>`;
+        }
+      }
+    </script>
+  </body>
+</html>
