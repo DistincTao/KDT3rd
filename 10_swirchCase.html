@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case 문</title>
+    <script>
+      // 유저에게 성인 5000, 청소년 3000, 어린이 2000 인지 입력을 받아 입장료 출력
+      // let ageGroup = prompt("나이를 입력하세요");
+      // let fee = "";
+      // switch (ageGroup) {
+      //   case "성인" :
+      //     ageGroup += ": 입장료 5,000원";
+      //     break;
+      //   case "청소년" :
+      //     ageGroup += ": 입장료 3,000원";
+      //     break;
+      //   case "어린이" :
+      //     ageGroup += ": 입장료 2,000원";
+      //     break;
+      //   default :
+      //     ageGroup = "다시 입력해주세요."  
+      // }
+
+      let ageGroup = Number(prompt("나이를 입력하세요"));
+      if (ageGroup <= 0 || ageGroup !== Number)
+        if (ageGroup >= 19) {
+          ageGroup = "성인"
+        } else if (ageGroup < 19 && ageGroup >= 8 ) {
+          ageGroup = "청소년"
+        } else {
+          ageGroup = "어린이"
+        }
+
+      let fee = ["5,000원", "3,000원", "2,000원"];
+      switch (ageGroup) {
+        case "성인" :
+          fee = fee[0]
+          break;
+        case "청소년" :
+          fee = fee[1];
+          break;
+        case "어린이" :
+          fee = fee[2];
+        default :
+          ageGroup = "다시 입력해주세요."  
+      }
+      document.write(`당신은 ${ageGroup}이므로 ${fee}입니다.`)
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

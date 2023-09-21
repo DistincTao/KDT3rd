@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나의 체질량 지수 (BMI)</title>
+  <style>
+    .container {
+      width: 800px;
+      height: 50px;
+      background-color: aliceblue;
+      border: 1px solid black;
+      font-size: 20px;
+      line-height: 50px;
+    }
+    .inputData {
+      display: flex;
+      justify-content: space-around;
+    }
+    input {
+      font-size: 20px;
+    }
+    .grade, .bmi {
+      display: flex;
+      margin: 10px 30px;
+      font-size: 20px;
+    }
+    .bmi div, .grade div {
+      padding-right: 20px;
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h2>나의 체질량 지수 (BMI)</h1>
+  <div class="container">
+    <div class="inputData">
+      <div> 신장 <input id="height" type="text" name="height" value="180"> cm</div>
+      <div> 체중 <input id="weight" type="text" name="weight" value="80"> kg</div> 
+      <div><button id="calculate" type="submit" onclick="cal()">계산</button></div>
+      <!-- <div><button type="reset">초기화</button></div> -->
+    </div>
+  </div>
+  <div class="result">
+    <div class="bmi">
+      <div>비만도 결과</div>
+      <div id="fat"></div>
+    </div>
+    <div class="grade">
+      <div>BMI 지수</div>
+      <div id="bmiScore"></div>
+    </div>
+  </div>
+  <script>
+    let height = document.getElementById("height").value / 100;
+    let weight = document.getElementById("weight").value;
+    let bmiScore = weight / (height ** 2);
+    let fat = "";
+    console.log(height, weight, bmiScore);
+
+    function cal (){
+      let bmiScore = weight / (height ** 2);
+      if (bmiScore >= 25) {
+      fat = "비만";
+      } else if (bmiScore >= 23 && bmiScore < 25) {
+      fat = "과체중";
+      } else if (bmiScore >= 18.5 && bmiScore < 23) {
+      fat = "정상";
+      } else {
+      fat = "저체중";
+      }
+      console.log(fat);
+      document.getElementById("fat").innerHTML = `${fat}입니다.`;
+      document.getElementById("bmiScore").innerHTML = `${bmiScore.toFixed(2)}`;
+    }
+
+  </script>
+</body>
+</html>

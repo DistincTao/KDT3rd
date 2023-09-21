@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    onload = function () {
+      let ranNum = Math.floor(Math.random() * 7 + 1);
+      let dinner = "";
+      let dinnerImg = "";
+
+      switch (ranNum) {
+        case 1 :
+          dinner = "짜장면";
+          dinnerImg = "img/jjajang.jpg";
+          break;
+        case 2 : 
+          dinner = "김치찌개";
+          dinnerImg = "img/kimchi.jpg";
+          break;
+        case 3 :
+          dinner = "돈까스";
+          dinnerImg = "img/donka.jpg";
+          break;
+        case 4 :
+          dinner = "햄버거";
+          dinnerImg = "img/ham.jpg";
+          break;
+        case 5 : 
+          dinner = "떡볶이";
+          dinnerImg = "img/dduk.jpg";
+          break;
+        case 6 : 
+          dinner = "쌀국수";
+          dinnerImg = "img/ssal.jpg";
+          break;
+        case 7 :
+        dinner = "라면";
+        dinnerImg = "img/ramen.jpg";
+      }
+      document.getElementById("dinner").innerHTML = `오늘의 저녁 매뉴는 ${dinner}!!`;
+      document.getElementById("dinnerImg").src = `${dinnerImg}`;
+    }  
+        
+  </script>
+</head>
+<body>
+  <h1 class="title">오늘 저녁 매뉴 추천</h1>
+  <div class="container">
+    <div id="dinner"></div>
+    <div>
+      <img id="dinnerImg" src="">
+    </div> 
+  </div>
+  
+</body>
+</html>
