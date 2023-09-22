@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 유저에게 숫자를 입력 받아서 짝수인지 홀수인지 출력
+    // switch 문 사용
+  </script>
+</head>
+<body>
+  <div class="num">
+    <input id="userInput" type="text">
+    <input class="go" type="button" onclick="go()" value="결과">
+  </div>
+  <div id="result"></div>
+  <script>
+    function go() {
+      let num = Number(document.getElementById("userInput").value);
+      if (num == 0) {
+        alert("다시 입력해주세요!")
+      }
+      let = data = num % 2;
+      result = "";
+      switch(data) {
+        case 0 :
+          result = "짝수";
+          break;
+        default :
+          result = "홀수";
+      }
+      document.querySelector("#result").innerHTML = `당신이 선택한 숫자는 : ${result}`;
+    }
+
+  </script>
+</body>
+</html>

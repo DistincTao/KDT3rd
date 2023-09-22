@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 컴퓨터와 유저와의 가위바위보
+    // 컴퓨터 : 랜덤하게 가위 바위 보
+    // 유저 : select 해서 선택 버튼을 누르면 가위 바위 보 시작
+  </script>
+  <style>
+    .userInput {
+      padding: 5px;
+    }
+    #userSelect, #userBtn {
+      font-size: 20px;
+    }
+    table {
+      width: 800px;
+      border-collapse: collapse;
+    }
+    table th {
+      height: 50px; 
+      width: 396px;
+      font-size: 32px;
+      background-color: bisque;
+    }
+    table td {
+      height: 350px;
+      text-align: center;
+    }
+    img {
+      width: 300px;
+    }
+    #result {
+      width : 800px;
+      text-align: center;
+      color: rebeccapurple;
+      font-size: 40px;
+      font-weight: bold;
+    }
+    .scoreBrd {
+      width: 800px;
+      height: 100px;
+      display: flex;
+      justify-content: space-evenly;
+      background-color: antiquewhite;
+    } 
+    .score {
+      display: flex;
+      flex-direction: column;
+    }
+    .score div {
+      font-size: 30px;
+      height: 40px;
+      line-height: 40px;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- <header class="header">
+    <h1>가위 바위 보!!</h1>
+    <div class="userInput">
+      <select name="" id="userSelect">
+        <option value="1">가위</option>
+        <option value="2">바위</option>
+        <option value="3">보</option>
+      </select>
+      <input type="button" name="" id="" value="선택" onclick="gameStart()">
+  </header>
+  <div class="contianer">
+    <div class="com">
+      <div >COM</div>
+      <div class="Img">
+        <img src="" alt="" id="comImg">
+      </div>
+    </div>
+    <div class="user">
+      <div>USER</div>
+      <div class="Img">
+        <img src="" alt="" id="userImg">
+      </div>
+    </div>
+  </div> -->
+  <h1>가위, 바위, 보</h1>
+  <div class="userInput">
+    <select name="" id="userSelect">
+      <option value="1">가위</option>
+      <option value="2">바위</option>
+      <option value="3">보</option>
+    </select>
+    <input type="button" name="" id="userBtn" value="선택" onclick="gameStart()">
+  </div>
+  <table border="1">
+    <tr>
+      <th>USER</th>
+      <th>COMPUTER</th>
+    </tr>
+    <tr>
+      <!-- <td><img id="userImg" src=""></td> -->
+      <!-- <td><img id="comImg" src=""></td> -->
+      <td id="userImg"></td>
+      <td id="comImg" ></td>
+    </tr>
+  </table>
+  <div>
+    <div id="result"></div>
+    <div class="scoreBrd">
+      <div class="score">
+        <div>승</div>
+        <div id="win">0</div>
+      </div>
+      <div class="score">
+        <div>무</div>
+        <div id="draw">0</div>
+      </div>
+      <div class="score">
+        <div>패</div>
+        <div id="lose">0</div>
+      </div>
+      <div class="score">
+        <div>승률</div>
+        <div id="winRate">00.00</div>
+      </div>   
+    </div>
+  </div>  
+
+  <script>
+      let win = 0;
+      let draw = 0;
+      let lose = 0;
+      let total = ""; 
+      let winRate = "";
+
+    function gameStart () { 
+      let users = document.getElementById("userSelect").value;
+      console.log(users);
+      let computers = Math.floor(Math.random() * 3) + 1;
+      console.log(computers);
+      let comResult = "";
+      let userResult = "";
+      let result = "";
+
+      switch (computers) {
+        case 1 :
+          comResult = "img/scissors.png"
+          break;
+        case 2 :
+          comResult = "img/rock.png"
+          break;
+        default :
+          comResult = "img/paper.png"
+      }
+
+      if (users == 1) {
+        userResult = "img/scissors.png"
+      } else if (users == 2) {
+        userResult = "img/rock.png"
+      } else {
+        userResult = "img/paper.png"
+      }
+
+      document.getElementById ("userImg").innerHTML = `<img src="${userResult}">`;
+      document.getElementById ("comImg").innerHTML = `<img src="${comResult}">`;
+
+      if (users == computers) {
+        result = "무승부"
+        draw++;
+        document.getElementById("draw").innerHTML = draw;
+      } else if ((users == 1 && computers == 2) || (users == 2 && computers== 3) || (users == 3 && computers == 1)) {
+        result = "패";
+        lose++;
+        document.getElementById("lose").innerHTML = lose;        
+      } else {
+        result = "승";
+        win++;
+        document.getElementById("win").innerHTML = win;
+      }
+      total = win + draw + lose; 
+      winRate = (win / total * 100).toFixed(2);
+      document.getElementById("result").innerHTML = `결과 : ${result}`;
+      document.getElementById("winRate").innerHTML = `${winRate}%`
+    }
+
+
+  </script>
+
+</body>
+</html>
