@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+      .gugudan {
+        border-collapse: collapse;
+        background-color: powderblue;
+        border: 1px solid gray;
+      }
+      td {
+        width: 100px;
+        text-align: center;
+        padding: 0.5rem;
+      }
+      .dan2 {
+        background-color: black;
+        color: white;
+      }
+      .dan3 {
+        background-color: red;
+        color: yellow;
+      }
+      .dan4 {
+        background-color: orange;
+        color: blue;
+      }
+      .dan5 {
+        background-color: yellow;
+        color: darkblue;
+      }
+      .dan6 {
+        background-color: green;
+        color: orange;
+      }
+      .dan7 {
+        background-color: blue;
+        color: orangered;
+      }
+      .dan8 {
+        background-color: darkblue;
+        color: yellowgreen;
+      }
+      .dan9 {
+        background-color: purple;
+        color: green;
+      }
+    </style>
+    <script>
+
+      for (i = 0; i < 4; i ++) {
+        // i = 0, 1, 2 , 3
+        for(j = 0; j < 3; j ++) {
+          console.log(i, j);
+        }
+      }
+
+      for (i = 0; i < 4; i ++) {
+        // i = 0, 1, 2, 3
+        for(j = 0; j < i + 2; j ++) {
+          console.log(i, j);
+        }
+      }
+
+      // ☆★★☆★★☆★★ 을 출력
+      // 패턴을 파악한다.
+      let star1 = `☆`
+      let star2 = `★`
+      for (i = 0; i < 3; i++) {
+        // i = 0, 1, 2
+        document.write(star1);
+        for (j = 0; j < 2; j++) {
+          // j = 0, 1
+          document.write(star2);
+        }
+      }
+      document.write("<hr>")
+      // 4행 3열의 테이블을 중첩 구문으로 만들어 보기
+      let table = `<table border='1'>`
+      for (i = 0; i < 4; i++) {
+        table += `</tr>`;
+        // 숫자 더하기.....i 와 j를 조합하는 방법 생각 해야함.
+        for (j = 0; j < 3; j++){
+          table += `<td> ${3 * i + j + 1 } </td>`;
+        }
+        table += `</tr>`
+      } 
+      table += `<table>`
+      document.write(table);
+
+      // 구구단을 테이블로 출력하자
+      let num = 3;
+      table = `<table class="gugudan" border='1'>`;
+      for (i = 2; i < 10 ; i++) {
+        document.write()
+        table += `<tr class="dan${i}">`;
+          for (j = 1; j < 10; j++) {
+            table += `<td> ${i} x ${j} = ${i * j}</td>`;
+          }
+        table += `</tr>`;
+      }
+      table += `</table> <hr>`;
+      document.write(table);
+
+      table = `<table class="gugudan" border='1'>`;
+      for (i = 1; i < 10 ; i++) {
+        document.write()
+        table += `<tr class="dan${i}">`;
+          for (j = 2; j < 10; j++) {
+            table += `<td> ${j} x ${i} = ${j * i}</td>`;
+          }
+        table += `</tr>`;
+      }
+      table += `</table> <hr>`;
+      document.write(table);
+
+      table = `<div class="container">`;
+      num = "";
+      for (num = 2; num < 10; num++) {
+        document.write(`${table}<table class="gugudan" border='1'>`);
+        document.write("<tr><th>" + num + "단 </th></tr>");
+        for (i = 1; i < 10 ; i++) {
+          document.write("<tr><td>" + num + " x " + i + " = " + (num * i) + "</td></tr>" );
+        }
+      }
+
+        document.write(`<hr>`)
+
+      // 직사각형 별 (3 * 4)
+      for (i = 0; i < 3; i ++) {
+        for (j = 0; j < 4; j++) {
+          document.write('*');
+        }
+        document.write("<br>")
+      }
+
+    </script>
+  </head>
+  <body>
+    <!-- <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr> -->
+  </body>
+</html>

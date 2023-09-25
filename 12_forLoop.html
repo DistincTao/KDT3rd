@@ -40,30 +40,43 @@
       document.write(table);
 
       // 4) 1에서 100까지의 누적 합을 구하시오 + 출력하기
-      let number = 0;
+      let sum = 0;
       for (i = 1; i <= 100; i++) {
-        number += i;
+        sum += i;
+        console.log("i = " + i, "sum = " + sum );
+
       }
-      document.write(`1부터 100까지의 합 : ${number}<br>`)
+      document.write(`1부터 100까지의 합 : ${sum}<br><hr>`)
 
       // 5) 1에서 100까지의 짝수 합 / 홀수 합을 구하고 출력하기
       let odd = 0;
       let even = 0;
-      for (i = 1; i <= 100; i += 2) {
-        odd += i;
-      } 
-      for (i = 2; i <= 100; i += 2) {
-        even += i;
+      for (i = 0; i < 100; i += 2) {
+        odd += i + 1;
+        console.log("i = " + i, "sum = " + odd );        
+        even += i + 2;
+        console.log("i = " + i, "sum = " + even );        
       } 
       document.write(`1부터 100까지의 홀수의 합 : ${odd} <br>`)
-      document.write(`1부터 100까지의 짝수의 합 : ${even} <br>`)
+      document.write(`1부터 100까지의 짝수의 합 : ${even} <br><hr>`)
+
+      // let odd2 = 0;
+      // let even2 = 0;
+      // for (i = 1; i <= 100, i++;) {
+      //   if (i % 2 == 0) {
+      //     even2 += i;
+      //   } else {
+      //     odd2 += i;
+      //   }
+      // }
+      // document.write(`1부터 100까지의 홀수의 합 : ${odd2} <br>`)
+      // document.write(`1부터 100까지의 짝수의 합 : ${even2} <br><hr>`)
 
       // 6) user에게 단을 입력 받아서 구구단을 출력하기
       table = `<table>`;
-      let userNum = Number(prompt("숫자를 입력하세요"));
+      let userNum = Number(prompt("구구단을 외우자!!", "숫자를 입력하세요"));
       for (i = 1; i <= 9; i++) {
         table += `<tr><td>${userNum}</td><td> X ${i}</td><td> = ${userNum * i} </td></tr>`;
-      // document.write(`${userNum} X ${i} = ${multi} <br>`)
       } 
       table += `</table>`;
       document.write(table);

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>break 와 continue</title>
+    <script>
+
+      // break
+      let i = 0;
+      for (; i < 5;) {
+        document.write(`${i++}번째 안녕하세요 <br>`)
+        if (i == 3) {
+          break;
+        }
+      }
+
+      document.write(`<hr>`)
+
+      // continue
+      for (let j = 0; j < 5; j++) {
+        if (j == 3) {
+          continue;
+        }
+        document.write(`${j}번째 안녕하세요. <br>`);
+      }
+      document.write(`<hr>`)
+
+      //while문
+      let k = 0;
+      while (k <10) {
+        document.write(`${k}번째 안녕하세요 <br>`);
+        k++;
+        if (k == 5) {
+          break;
+        }
+      }
+
+      // 1부터 9까지 합을 구하되 3의 배수를 제외하고 더하기
+      let sum = 0;
+      for (i = 1; i < 11; i++) {
+        if (i % 3 == 0) {
+          continue;
+        }
+        // console.log(i);
+        sum += i;
+      }
+      document.write(`${sum}<br>`);
+
+      // 1부터 100까지 짝수 합만을 구하기
+      let evenSum = 0;
+      for (i = 1; i < 101; i++) {
+        if (i % 2 == 1) {
+          continue;
+        }
+        evenSum += i;
+      }
+      document.write(`${evenSum}<br>`);
+
+      // 1부터 누적합을 구하되 몇까지 더해야 누적합이 1000이 넘어가는지 출력
+      let stackSum = 0;
+      for (let k = 1; k < 100; k++) {
+        // console.log(k);
+        stackSum += k;
+        if (stackSum > 1000) {
+          console.log(k);
+          document.write(`${k}번째에서 누적합이 1000을 넘는다 : 누적합 ${stackSum}`);
+          break;
+        }
+      }
+
+
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
