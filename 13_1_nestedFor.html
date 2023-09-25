@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>중첩 For문 연습</title>
     <style>
-
+      .container {
+        display: flex;
+      }
       .gugudan {
         border-collapse: collapse;
         background-color: powderblue;
@@ -107,7 +109,6 @@
 
       table = `<table class="gugudan" border='1'>`;
       for (i = 1; i < 10 ; i++) {
-        document.write()
         table += `<tr class="dan${i}">`;
           for (j = 2; j < 10; j++) {
             table += `<td> ${j} x ${i} = ${j * i}</td>`;
@@ -117,15 +118,18 @@
       table += `</table> <hr>`;
       document.write(table);
 
-      table = `<div class="container">`;
       num = "";
-      for (num = 2; num < 10; num++) {
-        document.write(`${table}<table class="gugudan" border='1'>`);
-        document.write("<tr><th>" + num + "단 </th></tr>");
-        for (i = 1; i < 10 ; i++) {
-          document.write("<tr><td>" + num + " x " + i + " = " + (num * i) + "</td></tr>" );
+      document.write(`<div class="container">`);
+      table = `<table class="gugudan" border='1'>`;
+      for (i = 1; i < 10; i++) {
+        table += `<tr class="dan${i}">`
+        for (j = 2; j < 10; j++) {
+          table += `<td> ${j} x ${i} = ${j * i} </td>`;
         }
+        table += `</tr>`;
       }
+      table += `</table></div>`;
+      document.write(table);
 
         document.write(`<hr>`)
 
