@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>break 와 continue</title>
+    <script>
+
+      // 1부터 9까지 합을 구하되 3의 배수를 제외하고 더하기
+      // 1,2,4,5,7,8,
+      // 3, 6, 9를 제외한 합은 ??
+      let sum = 0;
+      for (let i = 1; i < 10; i++) {
+        if (i % 3 == 0) {
+          continue;
+        }
+        // console.log(i);
+        sum += i;
+      }
+      document.write(`3, 6, 9를 제외한 합 : ${sum}<br>`);
+
+      // 1부터 100까지 짝수 합만을 구하기 (continue 이용)
+      let evenSum = 0;
+      let oddSum = 0;
+      for (let i = 1; i < 101; i++) {
+        if (i % 2 == 1) {
+          oddSum += i;
+          continue;
+         } // else {
+        // evenSum +=i  
+        }
+      // }
+      document.write(`1부터 100까지 짝수의 합 : ${evenSum}<br>`);
+      document.write(`1부터 100까지 홀수의 합 : ${oddSum}<br>`);
+
+      // 1부터 누적합을 구하되 몇까지 더해야 누적합이 1000이 넘어가는지 출력
+      let stackSum = 0;
+      for (let k = 1; k < 100; k++) {
+        // console.log(k);
+        stackSum += k;
+        if (stackSum > 1000) {
+          console.log(k);
+          document.write(`${k}번째에서 누적합이 1000을 넘는다 : 누적합 ${stackSum}<br>`);
+          break;
+        }
+      }
+
+      let accum = 0;
+      let i = 0;
+      while (accum > 1000) {
+        accum += i;
+        document.write(`${i}번째에서 누적합이 1000을 넘는다 : 누적합 ${accum}`)
+        i++;
+      }
+
+
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
