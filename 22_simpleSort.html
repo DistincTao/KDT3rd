@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오름 차순 정렬</title>
+    <script>
+      // 칠판에 설명항 알로리즘을 잘 기억해서,
+      // 1 ~ 100까지의 랜덤한 수 10개를 배열에 넣어두고,
+      // 오름차순으로 정렬하고
+      // 정렬전과 정렬 후의 배열을 각각 출력하기
+
+      let arr = new Array (10);
+      for (i = 0; i <10; i++) {
+        arr[i] = Math.floor(Math.random() * 100 + 1);
+      } 
+      console.log(arr);
+      table = `<table border='1'><tr>`
+      for (i = 0; i < arr.length; i++) {
+        table += `<td>${arr[i]}</td>`
+      }
+      table += `</tr></table>`
+      document.write(table);
+      
+      let temp = "";
+      let j = 0;
+      for (i = 0; i < arr.length - 1; i++){
+        for (j = i + 1; j < arr.length; j++)
+          if (arr[i] > arr[j] ) {
+          temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+        } 
+      }
+      console.log(arr);
+      
+      table2 = `<table border='1'><tr>`
+      for (i = 0; i < arr.length; i++) {
+        table2 += `<td>${arr[i]}</td>`
+      }
+      table2 += `</tr></table>`
+      document.write(table2);
+    
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
