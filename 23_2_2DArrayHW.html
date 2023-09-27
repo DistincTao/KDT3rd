@@ -9,9 +9,130 @@
       // 이름, 국어, 영어, 수학 데이터를 유저에게 입력 받아 각각의 총점, 평균, 학점을 구하시고, 
       // 성적표를 테이블 태그를 이용하여 출력하세요. (2차원 배열을 활용)
       
+      // 3행 7열의 배열 생성
+      let scoreBrd = new Array();
+      scoreBrd[0] = ["이름", "국어", "영어", "수학", "총점", "평균", "학점"]
+      scoreBrd[1] = new Array();
+      scoreBrd[2] = new Array();
+      scoreBrd[3] = new Array();
+      scoreBrd[4] = new Array();
+      scoreBrd[5] = new Array();
+      console.log(scoreBrd);
+      let slen = scoreBrd.length;
+      // 점수 입력
+      for (let i = 1; i < slen; i++){
+        scoreBrd[i][0] = prompt("이름을 입력하세요", "둘리");
+        for (let j = 1; j < scoreBrd[0].length - 3; j++) {
+          scoreBrd[i][j] = prompt("데이터를 입력하세요", "80");
+        }
+      }
+      //  총점 넣기
+      for (let i = 1; i < slen; i++) {
+          scoreBrd[i][4] = Number(scoreBrd[i][1]) + Number(scoreBrd[i][2]) + Number(scoreBrd[i][3]);
+        }
 
+      // 평균 넣기
+      for (let i = 1; i < slen; i++) {
+        scoreBrd[i][5] = Number((scoreBrd[i][4] / 3).toFixed(2));
+      }
+      // 등급 넣기
+      let avg = "";
+      for (let i = 1; i <slen; i++) {
+        avg = Math.floor(scoreBrd[i][5] / 10);
+        switch (avg) {
+          case 10 :
+          case 9 :
+            scoreBrd[i][6] = "A";
+            break;
+          case 8 :
+            scoreBrd[i][6] = "B";
+            break;
+          case 7 :
+            scoreBrd[i][6] = "C";
+            break;
+          case 6 :
+            scoreBrd[i][6] = "D";
+            break;
+          default :
+            scoreBrd[i][6] = "F";
+        }
+        
+        // if (scoreBrd[i][5] <= 100 && scoreBrd[i][5] >= 90) {
+        //   scoreBrd[i][6] = "A";
+        // } else if (scoreBrd[i][5] < 90 && scoreBrd[i][5] >= 80){
+        //   scoreBrd[i][6] = "B";
+        // } else if (scoreBrd[i][5] < 80 && scoreBrd[i][5] >= 70){
+        //   scoreBrd[i][6] = "C";
+        // } else if (scoreBrd[i][5] < 70 && scoreBrd[i][5] >= 60){
+        //   scoreBrd[i][6] = "D";
+        // } else {
+        //   scoreBrd[i][6] = "F";
+        // }
+      }
       // 추가 문제 1: 평균을 기준으로 내림차순 정렬하여 출력하세요!
-      // 추가 문제 2: 등수를 매겨 보세요. 
+      let temp = "";
+      for (let i = 1; i < slen - 1; i++) {
+        for (let j = i + 1; j < slen; j++) {
+          if (scoreBrd[i][5] < scoreBrd[j][5]){
+            temp = scoreBrd[i];
+            scoreBrd[i] = scoreBrd[j];
+            scoreBrd[j] = temp;
+          }
+          // scoreBrd[i][7] = i++;
+        }
+      }
+      // 추가 문제 2: "등수를 매겨 보세요.
+      scoreBrd[0][7] = "등수";
+      temp = 1;
+      let rank = new Array(slen);
+      for (let i = 1; i < slen; i++) {
+        rank[i] = 1;
+      }
+      console.log(rank);
+
+      for (let i = 1; i < slen; i++) {
+        for (let j = 1; j < slen; j++) {
+          if (scoreBrd[i][5] < scoreBrd[j][5]){
+              rank[i] ++;
+          }
+          scoreBrd[i][7] = rank[i];
+        }
+      }
+      console.log(scoreBrd);
+
+      // scoreBrd[0][7] = "등수";
+
+      // let rank = new Array(slen);
+      // for (let i = 1; i < slen; i++) {
+      //   rank[i] = 1;
+      // }
+      // console.log(rank);
+
+      // temp = 1;
+      // for (let i = 1; i < slen; i++) {
+      //   for (let j = 1; j < slen; j++) {
+      //     if (scoreBrd[j][5] > scoreBrd[i][5]){
+      //         temp ++;
+      //     }
+      //     scoreBrd[i][7] = temp;
+      //   }
+      // }
+      console.log(scoreBrd);
+
+      //  table 만들기
+      let output = `<table border="1"><tr>`
+      for (let i = 0; i < slen; i++) {
+        for (let j = 0; j < scoreBrd[0].length; j++){
+          output += `<td>${scoreBrd[i][j]}</td>`;
+        }
+        output += `</tr>`
+      }
+      output += `</table>`;
+      document.write(output);
+
+
+
+
       // (평균을 기준으로 등수를 매겨 보되, 평균이 같으면 등수가 건너 뜁니다.)
     </script>
   </head>
