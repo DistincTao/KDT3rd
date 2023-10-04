@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>2차원 배열을 이용한 성적표</title>
+    <script>
+      const STU_CNT = 5;
+      let scores = new Array(STU_CNT);
+      let len = scores.length;
+      for (let i = 0; i < len; i ++){
+        scores[i] = new Array(9);
+      }
+        // 점수 입력
+        scores = [
+          ["23001", "홍길동", 70, 88, 60],
+          ["23002", "둘리", 77, 30, 90],
+          ["23003", "도우너", 80, 37, 80],
+          ["23004", "마이콜", 50, 50, 60],
+          ["23005", "또치", 100, 100, 90]
+        ]
+
+      console.log(scores);
+
+      for (let i = 0; i < len; i++) {
+        scores[i][5] = Number(scores[i][2]) + Number(scores[i][3]) + Number(scores[i][4]);
+        scores[i][6] = Math.round((scores[i][5] / 3) * 100) / 100;
+
+        switch(Math.floor(scores[i][6] / 10)) {
+          case 10 :
+          case 9 :
+            scores[i][7] = 'A';
+            break;
+          case 8 :
+          scores[i][7] = 'B';
+            break;
+          case 7 :
+          scores[i][7] = 'C';
+            break;
+          case 6 :
+          scores[i][7] = 'D';
+            break;
+          default :
+          scores[i][7] = 'F';
+        }
+      }
+      console.log(scores);
+
+      function order() {
+        let radios = document.getElementsByName("order");
+        let order ="";
+        console.log(radios);
+        
+        radios.forEach(function (radioTag, ind){
+          console.log(radioTag);
+          if (radioTag.checked == true) {
+            order = radioTag.value;
+          }
+        });
+        console.log(order);
+        reOrder(order);
+        let sortTable = setTable();
+        document.getElementById("table").innerHTML = sortTable;
+      }    
+
+      function reOrder(order) {
+        console.log(order);
+        for (i = 0; i < len - 1; i++){
+          for (j = i + 1; j < len; j++){
+            // 내림 차순 정렬
+            if (order === "desc") {
+              // 내림차순은 앞에 값이 작을 때 자리를 바꿔 줌
+              if (scores[i][6] < scores[j][6]) {
+              let tmp = scores[j];
+              scores[j] = scores[i];
+              scores[i] = tmp;  
+            } 
+              // 평균값에 따라서 등수도 내림차순
+              scores[0][8] = 1;
+              for (let i = 1; i < len; i ++){
+                scores[i][8] = i + 1;
+                if (scores[i - 1][6] == scores[i][6]) {
+                  scores[i][8] = scores [i - 1][8];
+                }   
+              }
+            // 오름차순 정렬
+            } else if (order == "asc") {
+            // 오름차순은 앞에 값이 작을 때 자리를 바꿔 줌
+              if (scores[i][6] > scores[j][6]) {
+                let tmp = scores[j];
+                scores[j] = scores[i];
+                scores[i] = tmp;  
+              }
+            // 평균값에 따라서 등수도 오름차순
+              let rank = 1;
+              currRank = 1;
+              scores[len - 1][8] = currRank; 
+              for (let i = len - 2; i >= 0; i--){
+                rank++;
+                if (scores[i + 1][6] != scores[i][6]) {
+                  currRank = rank;
+                }
+                scores[i][8] = currRank;
+              }
+            }
+          }
+        }
+      }
+
+      reOrder("asc");
+
+      function setTable() {
+        let sortTable = `<table class="table">`;
+          sortTable += `<thead class="table-success"><tr><th>학번</th><th>이름</th><th>국어</th><th>영어</th><th>수학</th><th>총점</th><th>평균</th><th>학점</th><th>등수</th></tr></thead><tbody class="table-warning">`;
+          for (let i = 0; i < len; i ++) {
+            sortTable += `<tr>`;
+            for (let j = 0; j < scores[0].length; j++) {
+              sortTable += `<td>${scores[i][j]}</td>`;
+            }
+            sortTable += `</tr>`;
+          }
+          sortTable += `</tbody></table>`;
+          return sortTable;
+      }
+      // document.write(sortTable);
+      onload = function () {
+        let sortTable = setTable();
+        document.getElementById("table").innerHTML = sortTable;
+      }
+    
+    </script>
+    <style>
+      #order{
+        padding: 10px 50px;
+      }
+
+      .table {
+        text-align: center;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="order">
+      <input type="radio" name="order" id="asc" value="asc" checked> 오름차순
+      <input type="radio" name="order" id="desc" value="desc"> 내림차순
+      <button class="btn btn-success" onclick="order()">정렬</button>
+    </div>
+    <div id="table">
+
+    </div>
+    
+  </body>
+</html>
