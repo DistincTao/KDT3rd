@@ -15,8 +15,6 @@
       scoreBrd[1] = new Array();
       scoreBrd[2] = new Array();
       scoreBrd[3] = new Array();
-      scoreBrd[4] = new Array();
-      scoreBrd[5] = new Array();
       console.log(scoreBrd);
       let slen = scoreBrd.length;
       // 점수 입력
@@ -81,9 +79,10 @@
           // scoreBrd[i][7] = i++;
         }
       }
-      // 추가 문제 2: "등수를 매겨 보세요.
+      // 추가 문제 2: "등수를 매겨 보세요.      
+      // (평균을 기준으로 등수를 매겨 보되, 평균이 같으면 등수가 건너 뜁니다.)
       scoreBrd[0][7] = "등수";
-      temp = 1;
+
       let rank = new Array(slen);
       for (let i = 1; i < slen; i++) {
         rank[i] = 1;
@@ -100,25 +99,6 @@
       }
       console.log(scoreBrd);
 
-      // scoreBrd[0][7] = "등수";
-
-      // let rank = new Array(slen);
-      // for (let i = 1; i < slen; i++) {
-      //   rank[i] = 1;
-      // }
-      // console.log(rank);
-
-      // temp = 1;
-      // for (let i = 1; i < slen; i++) {
-      //   for (let j = 1; j < slen; j++) {
-      //     if (scoreBrd[j][5] > scoreBrd[i][5]){
-      //         temp ++;
-      //     }
-      //     scoreBrd[i][7] = temp;
-      //   }
-      // }
-      console.log(scoreBrd);
-
       //  table 만들기
       let output = `<table border="1"><tr>`
       for (let i = 0; i < slen; i++) {
@@ -130,11 +110,16 @@
       output += `</table>`;
       document.write(output);
 
-
-
-
-      // (평균을 기준으로 등수를 매겨 보되, 평균이 같으면 등수가 건너 뜁니다.)
     </script>
+    <style>
+      table {
+        border: 1px solid gray;
+        border-collapse: collapse;
+      }
+      td {
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     
