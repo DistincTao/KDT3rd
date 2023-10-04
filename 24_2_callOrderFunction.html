@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수의 호출 순서</title>
+    <script>
+      function a() {
+        let a = 10,
+          b = 20;
+        a = bbb(a, b);
+        document.write(a + "<br>"); // 4 -> 20  
+        return a + b; // 40
+      }
+
+      function bbb (a, b) {
+        a = 20;
+        document.write(a + "<br>"); // 3 -> 20
+        return a;
+      }
+
+      function ccc () {
+        document.write("ⓐ <br>"); // 2
+        a (); // 40
+        document.write("ⓑ <br>"); // 5
+      }
+
+      document.write("ⓒ <br>"); // 1
+      ccc()
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>

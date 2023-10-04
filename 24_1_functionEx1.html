@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 정의 함수의 기본 운용법</title>
+    <script>
+      // 함수 선언식
+      // 함수를 호출하는 순서에 따라 순서대로 출력됨 (함수의 선언 위치 무관)
+      // -> Hoisting으로 함수가 동작함
+
+      function sayHello() {
+        document.write("Hello~ <hr>");
+      }
+
+      function sayHi (times) {
+        console.log(times);
+        for (let i = 0; i < times; i++){
+          document.write("Hi! ");
+        }
+      }
+
+      function addTwoNumber(num1, num2) {
+        document.write(num1 + num2);
+      }
+      sayHello(); 
+      sayHi(3);
+      document.write("<hr>");
+      addTwoNumber(1, 2);
+      // console.lig(num1); // => 지역변수 -> error
+      document.write("<hr>");
+
+      function addTwoNumberWithReturn(num1, num2) {
+        // return num1 + num2;
+        let result = num1 + num2;
+        return result;
+      }
+
+      console.log(addTwoNumberWithReturn(3, 6));
+
+      //두개의 문자열을 받아서 문자열을 하나로 합쳐서 반환 하는 함수
+
+      function concatString (str1, str2) {
+        p = str1 + str2;
+        return p;
+
+      }
+
+      document.write(concatString ("안녕, ", "반가워"));
+      document.write("<hr>");
+
+      // 함수 인자의 기본값을 줄 수 있다.
+      function sum(a, b = 20) {
+        console.log("sum() :", a, b, a + b);
+      }
+      sum(15);
+      sum(30, 80);
+
+      function sum2(a, b = 5, c = 10) {
+        console.log("sum2() :", a, b, c, a + b + c);
+      }
+
+      sum2 (10);
+      sum2 (10, 20);
+      sum2 (10, 20, 30);
+
+      // 지역 변수 vs 전역 변수
+      let globalNum = 100; // 전역 변수
+      test();
+      document.write(globalNum);
+
+      function test() {
+        let globalNum = 200; // 지역 변수
+        return globalNum;
+      }
+
+      document.write("<hr>");
+
+      let globalNum2 = 100;
+      globalNum2 = test();
+      document.write(globalNum2);
+
+      // 익명함수 (이름이 없는 함수)
+      let add = function (a, b) {
+        return a + b;
+      };
+      let result1 = add(100, 200);
+      console.log(result1);
+
+      // 즉시실행 함수
+      let add2 = (function () {
+        return 300 + 400;
+      })();
+      console.log(add2);
+
+      let add3 = (function (a, b) {
+        return a + b;
+      })(1000, 2000);
+      console.log(add3);
+
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
