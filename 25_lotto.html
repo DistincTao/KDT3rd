@@ -9,62 +9,124 @@
     // 중복은 허용하지 않는다.
     // 로또 번호를 출력하세요
 
-    let result = new Array(6)
+    let result = new Array(7)
     let len = result.length;
     let randomNum;
 
     // 1부터 45사이의 랜덤수를 뽑는다.
     // 같은 수가 나오면 다시 뽑자
-    // function lottary () {}
-
-    for (i = 0; i < len; i++){
-      result[i] = Math.floor(Math.random() * 44 + 1);
-      for (j = 0; j < i; j++){
-        if (result[i] == result[j])
-          i--;
+    function lottary () {
+      for (i = 0; i < len; i++){
+        result[i] = Math.floor(Math.random() * 44 + 1);
+        for (j = 0; j < i; j++){
+          if (result[i] == result[j])
+            i--;
         }
         console.log(result[i]);
-    }
-    console.log(result);
-    onload = function () {
+      }
+      console.log(result);
       document.getElementById("num1").innerHTML = result[0];
       document.getElementById("num2").innerHTML = result[1];
       document.getElementById("num3").innerHTML = result[2];
       document.getElementById("num4").innerHTML = result[3];
       document.getElementById("num5").innerHTML = result[4];
       document.getElementById("num6").innerHTML = result[5];
+      document.getElementById("num7").innerHTML = result[6];
+
+
+      let balls = document.getElementsByClassName("ball");
+      console.log(balls[0].innerHTML, balls);
+      for (item of balls) {
+        if (item.innerHTML > 0 && item.innerHTML <= 10) {
+          item.style.backgroundColor ="gold";
+        } else if (item.innerHTML > 11 && item.innerHTML <= 20) {
+          item.style.backgroundColor = "blue";
+        } else if (item.innerHTML > 21 && item.innerHTML <= 30) {
+          item.style.backgroundColor = "darkred";
+        } else if (item.innerHTML > 31 && item.innerHTML <= 40) {
+          item.style.backgroundColor = "darkgray";
+        } else {
+          item.style.backgroundColor = "lawngreen";
+        }
+      }
     }
+
+
+
+    
   </script>
   <style>
+    .info {
+      box-sizing: content-box;
+      margin: 50px auto;
+      width: 250px;
+      height: 50px;
+      background-color: aquamarine;
+      text-align: center;
+      line-height: 50px;
+      font-size: 1.5em;
+    }
+    .info:hover {
+      background-color: tomato;
+    }
     .lotto {
+      background-color: powderblue;
       display: flex;
       margin : 50px;
-      background-color: powderblue;
-      width: 800px;
+      height: 200px;
       justify-content: space-around;
+      align-items: center;
     } 
-    .lotto div {
-      width: 100px;
-      height: 100px;
+    .lotto .ball {
+      width: 80px;
+      height: 80px;
       padding: 20px;
       border-radius: 50%;
-      background-color: yellow;
+      background-color: white;
       text-align: center;
-      line-height: 100px;
+      line-height: 80px;
       font-size: 50px;
-
+      color: white;
+      box-shadow: 3px 3px 10px darkgray;
+    }
+    .lotto div:nth-child(2) {
+      text-align: center;
+      padding: 10px;
     }
   </style>
 </head>
 <body>
-  <input type="button" id="result" name="result" value="로또 추첨">
-  <div class="lotto">
-    <div id="num1"></div>
-    <div id="num2"></div>
-    <div id="num3"></div>
-    <div id="num4"></div>
-    <div id="num5"></div>
-    <div id="num6"></div>
+  <div class="info" onclick="lottary()">눌러서 로또 번호 받기</div>
+  <div class="lotto" id="result" >
+    <div>
+      <div class="ball" id="num1"></div>
+      <div> 1번 공</div>
+  </div>
+    <div>
+      <div class="ball" id="num2"></div>
+      <div> 2번 공</div>
+  </div>
+    <div>
+      <div class="ball" id="num3"></div>
+      <div> 3번 공</div>
+  </div>
+    <div>
+      <div class="ball" id="num4"></div>
+      <div> 4번 공</div>
+  </div>
+    <div>
+      <div class="ball" id="num5"></div>
+      <div> 5번 공</div>
+  </div>
+    <div>
+      <div class="ball" id="num6"></div>
+      <div> 6번 공</div>
+  </div>
+    <div>
+      <div class="ball" id="num7"></div>
+      <div> 보너스 공</div>
+  </div>
+    </div>
   </div>
 </body>
 </html>
