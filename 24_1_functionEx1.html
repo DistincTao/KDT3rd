@@ -98,6 +98,24 @@
       })(1000, 2000);
       console.log(add3);
 
+      // 밖에서는 안이 보이고 -> 전역 변수
+      // 안에서는 밖을 볼 수 있다. -> 지역 변수
+
+      let gVar = "global";
+      function myFunc() {
+        let lVar = "local"; // myFunc() 함수의 지역 변수
+        console.log(lVar);
+        console.log(gVar);
+        function innerFunc() {
+          console.log(lVar);
+          let innerVar = "inner"
+          console.log(innerVar)
+        }
+        // console.log(innerVar); // => Uncaught ReferenceError: innerVar is not defined
+        innerFunc();
+      }
+      myFunc();
+
     </script>
   </head>
   <body>

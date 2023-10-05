@@ -17,7 +17,7 @@
     // 같은 수가 나오면 다시 뽑자
     function lottary () {
       for (i = 0; i < len; i++){
-        result[i] = Math.floor(Math.random() * 44 + 1);
+        result[i] = Math.floor(Math.random() * 45 + 1);
         for (j = 0; j < i; j++){
           if (result[i] == result[j])
             i--;
@@ -50,10 +50,6 @@
         }
       }
     }
-
-
-
-    
   </script>
   <style>
     .info {
@@ -89,9 +85,10 @@
       color: white;
       box-shadow: 3px 3px 10px darkgray;
     }
-    .lotto div:nth-child(2) {
+    .ballNum {
       text-align: center;
-      padding: 10px;
+      font-weight: 800;
+      background-color: yellow;
     }
   </style>
 </head>
@@ -100,31 +97,31 @@
   <div class="lotto" id="result" >
     <div>
       <div class="ball" id="num1"></div>
-      <div> 1번 공</div>
+      <div class="ballNum"> 1번 공</div>
   </div>
     <div>
       <div class="ball" id="num2"></div>
-      <div> 2번 공</div>
+      <div class="ballNum"> 2번 공</div>
   </div>
     <div>
       <div class="ball" id="num3"></div>
-      <div> 3번 공</div>
+      <div class="ballNum"> 3번 공</div>
   </div>
     <div>
       <div class="ball" id="num4"></div>
-      <div> 4번 공</div>
+      <div class="ballNum"> 4번 공</div>
   </div>
     <div>
       <div class="ball" id="num5"></div>
-      <div> 5번 공</div>
+      <div class="ballNum"> 5번 공</div>
   </div>
     <div>
       <div class="ball" id="num6"></div>
-      <div> 6번 공</div>
+      <div class="ballNum"> 6번 공</div>
   </div>
     <div>
       <div class="ball" id="num7"></div>
-      <div> 보너스 공</div>
+      <div class="ballNum"> 보너스 공</div>
   </div>
     </div>
   </div>

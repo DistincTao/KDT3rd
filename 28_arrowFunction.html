@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화살표 함수 (Arrow Function)</title>
+    <script>
+      // =>
+      // 함수 선언식
+      // function gretting() {
+      //   return "Hello";
+      // }
+
+      // gretting(); // 호출
+
+      // function sayHi() { // Arrow 함수는 HOISTING이 되지 않음
+      //   greeting();
+      // }
+      // sayHi();
+
+      // 함수 표현식 + 화살표 함수
+      // document.write(greeting()); // 선언 전에 호출 시 오류 발생
+      // => Uncaught ReferenceError: Cannot access 'greeting' before initialization
+      const greeting = () => "Hello <br>"; // 한번 정해진 pointer 값이 변하지 안으므로 상수로 선언해도 된다.
+      // document.write(greeting()); // 먼저 선언 후 호출 해야만 함
+
+      // function hi(name) {
+      //   return name + "님 안녕하세요 <br>"
+      // }
+
+      const hi = (name) => name + "님 안녕하세요 <br>";
+      // 인자가 하나라면 괄호는 생략 가능
+      document.write(hi("나"));
+
+      // function sum(a, b) {
+      //   return a + b;
+      // }
+
+      const sum = (a, b) => a + b + "<br>";
+      document.write(sum(3, 5));
+
+      // function hi2(name) {
+      //   if (isFinite(name)) {
+      //     return "문자열을 입력하세요.";
+      //   } 
+      //   return name + "님 안녕하세요!!! <br>";
+      // }
+
+      const hi2 = (name) => isFinite(name) ? "문자열을 입력하세요.<br>" : name + "님 안녕하세요!! <br>";
+      
+      document.write(hi2("나"))
+      document.write(hi2("1234"))
+
+      let age = prompt("나이를 입력하세요", 0); 
+      let welcome = age >= 19 ? () => alert("환영합니다.") : () => alert("꺼져!");
+      // 함수 내에서 함수를 불러와 사용 가능 => 변수형으로 변환하여 호출
+      welcome();
+      
+
+
+  </script>
+  </head>
+  <body>
+  
+  </body> 
+</html>
