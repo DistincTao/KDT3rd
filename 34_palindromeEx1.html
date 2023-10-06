@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+    <script>
+
+      function palCheck () {
+        let userInput = document.getElementById("userInput").value;
+        let inputLen = userInput.length;
+        let centerIndex = Math.floor(inputLen / 2);
+        for (let i = 0; i < centerIndex; i++) {
+          if (inputLen / 2 == 0) {
+          // 짝수일 경우
+            for (let j = inputLen - 1; j > centerIndex - 1; j--){
+              if(userInput[i] == userInput[j]) {
+                document.getElementById("result").innerHTML = `${userInput}은 회문이 맞습니다!!`;
+              } else {
+                document.getElementById("result").innerHTML = `다시 입력 해보시겠어요?`;
+              }
+            }
+          } else { // 홀수일 경우
+            for (let j = inputLen - 1; j > centerIndex; j--){
+              if(userInput[i] == userInput[j]) {
+                document.getElementById("result").innerHTML = `${userInput}은 회문이 맞습니다!!`;
+              } else {
+                document.getElementById("result").innerHTML = `다시 입력 해보시겠어요?`;
+              }
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+        <input type="text" name="" id="userInput" onchange="palCheck()">
+        <div id="result"></div>
+    </div>
+  </body>
+</html>

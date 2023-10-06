@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기념일 계산기</title>
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <input type="date" name="" id="AniDate" value="2024-04-01">
+      <button id="cal" onclick="calAniDate()">계산하기</button>
+    </div>
+    <div class="notice">
+      <div id="hundred100"></div>
+      <div id="Hundred200"></div>
+      <div id="yearly"></div>
+    </div>
+
+    <script>
+      function calAniDate() {
+        let now = new Date();
+        let aniDate = new Date(document.getElementById("AniDate").value);
+        console.log(typeof aniDate);
+        let temp = aniDate - now.getDay();
+        // let futureDate = Math.floor(temp / 3600000 / 24);
+        // let result = futureDate
+        console.log(now);
+        console.log(aniDate);
+        console.log(temp);
+
+        // document.getElementsByClassName("notice")[0].innerHTML = 
+        // document.getElementsByClassName("notice")[1].innerHTML = 
+        // document.getElementsByClassName("notice")[2].innerHTML = 
+
+      }
+
+    </script>
+  </body>
+</html>
