@@ -25,8 +25,8 @@
       let now = new Date();
       let result = new Date();
 
-      result = Math.floor((userDate.getTime() - now.getTime()) / 24 / 3600000);
-      document.getElementById("result").innerHTML = `오늘로 부터 : ${result}일`;
+      result = Math.floor((now.getTime() - userDate.getTime()) / 24 / 3600000);
+      document.getElementById("result").innerHTML = `오늘로 부터 : ${result}일 지남`;
     }
 
 </script>

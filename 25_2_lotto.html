@@ -24,14 +24,9 @@
       }
       selectNum (7);
       console.log(lotto);
-      document.getElementById("num1").innerHTML = lotto[0];
-      document.getElementById("num2").innerHTML = lotto[1];
-      document.getElementById("num3").innerHTML = lotto[2];
-      document.getElementById("num4").innerHTML = lotto[3];
-      document.getElementById("num5").innerHTML = lotto[4];
-      document.getElementById("num6").innerHTML = lotto[5];
-      document.getElementById("num7").innerHTML = lotto[6];
-
+      for (let i = 0; i < lotto.length; i++) {
+      document.getElementById(`num${i + 1}`).innerHTML = lotto[i];
+      }
 
       let balls = document.getElementsByClassName("ball");
       console.log(balls[0].innerHTML, balls);
@@ -104,7 +99,7 @@
 </head>
 <body>
   <div class="info" onclick="lottary()">눌러서 로또 번호 받기</div>
-  <div class="lotto" id="lotto" >
+  <div class="lotto" id="lotto" onclick="location.reload()">
     <div>
       <div class="ball" id="num1"></div>
       <div class="ballNum"> 1번 공</div>
