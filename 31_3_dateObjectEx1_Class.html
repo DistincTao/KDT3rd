@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+  <div id="calendar">
+    <input type="date">
+    <button onclick="calDate()">계산하기!</button> 
+    <div id="result"></div>
+  </div>
+  <script>
+    // 연습문제
+    // 사용자에게 날짜를 입력받아, 현재 시간이 입력받은 날짜로부터 
+    // 얼마나 지났는지 (며칠) 계산을 해보자
+    function calDate() {
+      let userDate = new Date(
+        document.getElementsByTagName("input")[0].value
+      );
+      console.log(typeof userDate);
+
+      let now = new Date();
+      let tmp = userDate.getTime() - now.getTime();
+      let result = Math.ceil(tmp / 3600000 / 24);
+      let output = "";
+      output += document.getElementById("result").innerHTML = `오늘로 부터 : ${result}일 <br>`
+    
+      let future100 = now.getTime() + 100 * 24 * 3600000;
+
+      output += document.getElementById("result").innerHTML = `100일 후 : ${Date(future100)}`;
+
+      document.write(output);
+        
+    }
+    
+
+</script>
+
+</body>
+</html>

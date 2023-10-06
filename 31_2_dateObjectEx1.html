@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+  <div>
+    <input type="date" name="userDate" id="userDate">
+    <button name="userDate" onclick="cal()">계산하기!</button> 
+    <div id="result"></div>
+  </div>
+  <script>
+    // 연습문제
+    // 사용자에게 날짜를 입력받아, 현재 시간이 입력받은 날짜로부터 
+    // 얼마나 지났는지 (며칠) 계산을 해보자
+
+    // let userDate = Date(2001, 1, 5);
+
+    function cal() {
+      let userDate = new Date(document.getElementById("userDate").value);
+      console.log(typeof userDate, userDate);
+      let now = new Date();
+      let result = new Date();
+
+      result = Math.floor((userDate.getTime() - now.getTime()) / 24 / 3600000);
+      document.getElementById("result").innerHTML = `오늘로 부터 : ${result}일`;
+    }
+
+</script>
+
+</body>
+</html>
