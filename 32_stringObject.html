@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문자열 객체</title>
+  <script>
+    // 문자열 객체의 생성
+    let str = new String("대한민국");
+
+    console.log(str);
+    console.log(typeof str);
+    console.log(str[0]);
+    console.log(str[0] + str[1] + str[3]);
+    // str[1] = "항";
+    console.log(str);
+
+    let str1 = "대한민국";
+    console.log(typeof str1);
+    console.log(str1);
+    console.log(str[1]);
+
+    let num = [1, 2, 3, 4];
+    num[1] = 20;
+    console.log(num);
+
+    str = "대한민국 우리나라 좋은나라";
+    //     0 1 2 3 45 67 89 10111213
+    document.write(`${str} <br>`);
+    document.write(`${str.charAt(2)} <br>`);
+    // document.write(`${str.concat(" ", "좋아요")}`);
+    document.write(`${str.concat("            좋아요")} <br>`); // 공백은 한 칸만 적용됨
+
+    // indexOf() : 일치하는 첫번째 인덱스를 반환, 없으면 -1 반환 / 왼쪽부터 검색
+    document.write(`${str.indexOf("나")} <br>`); // 7
+    document.write(`${str.indexOf("나", 8)} <br>`); // 12
+    document.write(`${str.indexOf("다")} <br>`); // -1
+
+    //lastIndexOf () : 오른쪽부터 검색 (인덱스는 0번째부터의 인덱스 값을 반환)
+    document.write(`${str.lastIndexOf("민국")} <br>`); // 12
+    document.write(`${str.lastIndexOf("나")} <br>`); // 12
+
+    //substr()  
+    document.write(`${str.substr(5, 4)} <br>`); // 우리나라
+    document.write(`${str.substr(10, 2)} <br>`); // 좋은
+
+    // subString()
+    document.write(`${str.substring(5, 9)} <br>`); // 우리나라
+
+    let statement = "I am a student";
+    document.write(`${statement.toLowerCase()} <br>`); // 소문자 변환
+    document.write(`${statement.toUpperCase()} <br>`); // 대문자 변환
+
+    // statement에서 student라는 단어를 추출해서 대문자로 변환하여 출력하세요.
+    document.write(`${statement.substr(7, 7).toUpperCase()} <br>`);
+    document.write(`${statement.substring(7).toUpperCase()} <br>`);
+    document.write(
+      `${statement.substr(statement.indexOf("student"), "student".length).toUpperCase()} <br>`
+    );
+    document.write(`${statement.substring(statement.indexOf("student")).toUpperCase()} <br>`);
+    document.write(`${statement.substring(statement.lastIndexOf("student")).toUpperCase()}<br>`);
+
+    let statement2 = "      홍 길 동       ";
+    document.write(`${statement2} <br>`);
+    console.log(statement2);
+
+    console.log(statement2.trim());
+    console.log(statement2.trimEnd());
+    console.log(statement2.trimStart());
+
+    console.log(statement2.replaceAll(" ", ""));
+    console.log(statement2.split(" ").join(""));
+    // 정규식 사용 (Ragular Expression)
+    console.log(statement2.replace(/\s/g, ""));
+
+    // james를 첫 글자(j) 만 대문자로 바꾸기 => James
+    let str3 = "james";
+    document.write(str3.replace("j", "J") + "<br>");
+    document.write(str3.replace(str3[(str3.indexOf("j"))], "J"));
+
+
+    
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
