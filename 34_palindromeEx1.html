@@ -7,29 +7,23 @@
     <script>
 
       function palCheck () {
-        let userInput = document.getElementById("userInput").value;
+        let userInput = String(document.getElementById("userInput").value);
         let inputLen = userInput.length;
-        let centerIndex = Math.floor(inputLen / 2);
+        let centerIndex = Math.ceil(inputLen / 2);
+        console.log(inputLen, centerIndex)
         for (let i = 0; i < centerIndex; i++) {
-          if (inputLen / 2 == 0) {
-          // 짝수일 경우
-            for (let j = inputLen - 1; j > centerIndex - 1; j--){
-              if(userInput[i] == userInput[j]) {
-                document.getElementById("result").innerHTML = `${userInput}은 회문이 맞습니다!!`;
-              } else {
-                document.getElementById("result").innerHTML = `다시 입력 해보시겠어요?`;
-              }
-            }
-          } else { // 홀수일 경우
+          console.log(i, userInput[i])
             for (let j = inputLen - 1; j > centerIndex; j--){
               if(userInput[i] == userInput[j]) {
-                document.getElementById("result").innerHTML = `${userInput}은 회문이 맞습니다!!`;
+                console.log(j, userInput[j])
+                document.getElementById("result").innerHTML = `회문이 맞습니다!! <br> 3초후 초기화`;
               } else {
-                document.getElementById("result").innerHTML = `다시 입력 해보시겠어요?`;
+                document.getElementById("result").innerHTML = `다시 입력 해보시겠어요? <br> 3초후 초기화`;
               }
-            }
           }
         }
+        setInterval(function(){
+                  location.reload(userInput);}, 3000);
       }
     </script>
   </head>
