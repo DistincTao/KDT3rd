@@ -8,10 +8,9 @@
     // 1 ~ 45 사이의 랜덤한 수를 6개 출력하되 중복은 허용하지 않는다.
     // splice()를 이용해서 구현하기
 
-    let lotto = new Array(6);
+    let lotto = new Array();
     let arr = new Array(45);
     let temp = 0;
-    let count = 45
 
       for (let i = 0; i < arr.length; i++){
         do {
@@ -19,16 +18,8 @@
         } while (isDuplicate())
         arr[i] = temp;
       }
-      console.log(arr)
-
-      for (let i = 0; i < 6; i++) {
-        j = Math.floor(Math.random() * count)
-        // console.log(j);
-          lotto[i] = arr[j];
-          console.log(j);
-          arr.splice(j, 1);
-          count--;
-      } 
+      selectNum(6);
+      
       console.log(arr)
       console.log(lotto)
 
@@ -77,6 +68,18 @@
         }
       }
       return false;         
+    }
+
+    function selectNum (num) {
+      for (let i = 0; i < num; i++) {
+        let count = arr.length;
+        j = Math.floor(Math.random() * count)
+        // console.log(j);
+          lotto[i] = arr[j];
+          console.log(`${i + 1}번째 index : ${j}`);
+          console.log(`배열 크기 : ${arr.length}`);
+          arr.splice(j, 1);
+      } 
     }
   </script>
 </head>

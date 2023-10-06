@@ -9,29 +9,28 @@
     // 중복은 허용하지 않는다.
     // 로또 번호를 출력하세요
 
-    let result = new Array(7)
-    let len = result.length;
-    let randomNum;
+    let lotto = new Array();
+    let arr = new Array(45);
 
     // 1부터 45사이의 랜덤수를 뽑는다.
     // 같은 수가 나오면 다시 뽑자
     function lottary () {
-      for (i = 0; i < len; i++){
-        result[i] = Math.floor(Math.random() * 45 + 1);
+      for (i = 0; i < arr.length; i++){
+        arr[i] = Math.floor(Math.random() * arr.length + 1);
         for (j = 0; j < i; j++){
-          if (result[i] == result[j])
+          if (arr[i] == arr[j])
             i--;
         }
-        console.log(result[i]);
       }
-      console.log(result);
-      document.getElementById("num1").innerHTML = result[0];
-      document.getElementById("num2").innerHTML = result[1];
-      document.getElementById("num3").innerHTML = result[2];
-      document.getElementById("num4").innerHTML = result[3];
-      document.getElementById("num5").innerHTML = result[4];
-      document.getElementById("num6").innerHTML = result[5];
-      document.getElementById("num7").innerHTML = result[6];
+      selectNum (7);
+      console.log(lotto);
+      document.getElementById("num1").innerHTML = lotto[0];
+      document.getElementById("num2").innerHTML = lotto[1];
+      document.getElementById("num3").innerHTML = lotto[2];
+      document.getElementById("num4").innerHTML = lotto[3];
+      document.getElementById("num5").innerHTML = lotto[4];
+      document.getElementById("num6").innerHTML = lotto[5];
+      document.getElementById("num7").innerHTML = lotto[6];
 
 
       let balls = document.getElementsByClassName("ball");
@@ -49,6 +48,17 @@
           item.style.backgroundColor = "lawngreen";
         }
       }
+    }
+
+    function selectNum (num) {
+      for (let i = 0; i < num; i++) {
+        j = Math.floor(Math.random() * arr.length)
+          lotto[i] = arr[j];
+          // console.log(`${i + 1}번째 index : ${j}`);
+          // console.log(`배열 크기 : ${arr.length}`);
+          arr.splice(j, 1);
+
+      } 
     }
   </script>
   <style>
@@ -94,7 +104,7 @@
 </head>
 <body>
   <div class="info" onclick="lottary()">눌러서 로또 번호 받기</div>
-  <div class="lotto" id="result" >
+  <div class="lotto" id="lotto" >
     <div>
       <div class="ball" id="num1"></div>
       <div class="ballNum"> 1번 공</div>

@@ -8,76 +8,29 @@
     // 1 ~ 45 사이의 랜덤한 수를 6개 출력하되 중복은 허용하지 않는다.
     // splice()를 이용해서 구현하기
 
-    let lotto = new Array(6);
+    let lotto = new Array();
     let arr = new Array(45);
-    let temp = 0;
-    let count = 45
 
     for (i = 0; i < arr.length; i++){
-        arr[i] = Math.floor(Math.random() * 45 + 1);
+        arr[i] = Math.floor(Math.random() * arr.length + 1);
         for (j = 0; j < i; j++){
           if (arr[i] == arr[j])
             i--;
         }
       }
-      console.log(arr)
-
-      for (let i = 0; i < 6; i++) {
-        j = Math.floor(Math.random() * count)
-          lotto[i] = arr[j];
-          console.log(j);
-          arr.splice(j, 1);
-          count--;
-      } 
-      console.log(arr)
+      selectNum (6);
       console.log(lotto)
 
-    // let temp = 0;
-    // let temp2 = 0;
-    // for (let i = 0; i < arr.length; i++){
-    //   do {
-    //     temp = Math.floor(Math.random() * 45 + 1);
-    //     console.log(temp, arr);
-    //   } while (deleteSame(arr))
-    //   console.log(arr);
-    //   arr[i] = temp;
-    //   addElem(arr);
-    // }
-    // console.log(arr);
-
-    // // console.log(arr)
-
-    // function deleteSame(arr){
-    //   arr.forEach (function (item, i) {
-    //     if (temp == item) {
-    //       console.log(temp, item);
-    //       arr.splice(i, 1, temp2);
-    //       return true;
-    //     } else {
-    //       return false;
-    //     }
-    //   })
-    // }
-
-    // function addElem (arr) {
-    //   arr.forEach (function (item, i){
-    //     if (item == temp2) {
-    //       do {
-    //         arr[i] = Math.floor(Math.random() * 45 + 1);
-    //       } while (deleteSame(arr)) 
-    //     }
-    //   })
-    // }
-
-    function isDuplicate () {
-      for (let item of arr) {
-        // console.log(temp, item);
-        if (temp == item) {
-          return true;      
-        }
-      }
-      return false;         
+    function selectNum (num) {
+      for (let i = 0; i < num; i++) {
+        j = Math.floor(Math.random() * arr.length)
+          lotto[i] = arr[j];
+          // console.log(`${i + 1}번째 index : ${j}`);
+          // console.log(`배열 크기 : ${arr.length}`);
+          arr.splice(j, 1);
+      } 
     }
+
   </script>
 </head>
 <body>
