@@ -1,0 +1,21 @@
+fieldset {
+  text-align: center;
+  width: 200px;
+}
+.loginInfo {
+  height: 20px;
+  margin: 5px;
+}
+#searchId {
+  padding: 10px ;
+  font-size: 13px;
+}
+.loginBt {
+  margin: 10px;
+}#searchId {
+  text-decoration: underline;
+  color: blue; 
+}
+#errorMsg {
+  opacity: 0;
+}

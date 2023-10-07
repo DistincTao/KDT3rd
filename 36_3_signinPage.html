@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us</title>
+    <link rel="stylesheet" href="css/style_signin.css">
+  </head>
+  <body>
+    <div class="header">
+      <h1>동료가 되라!!</h1>
+    </div>
+    <div class="article">
+      <form action="13_4_index.html">
+        <h3>회원 가입</h3>
+        <table class="mem_type">
+          <tr>
+            <td>회원 구분</td>
+            <td>
+              <input type="radio" name="sign_type" value="personal" checked>개인 회원
+
+              <input type="radio" name="sign_type" value="법인 회원"> 법인 회원
+            </td>
+          </tr>
+        </table>
+        <h3>기본 정보</h3>
+        <table class="mem_info">
+          <tr>
+            <td>아이디</td>
+            <td>
+              <input type="text" name="userId" size="20" autocomplete="off" required> (영문소문자/숫자, 4~16자)
+            </td>
+          </tr>
+          <tr>
+            <td>비밀번호</td>
+            <td>
+              <input type="password" name="userPw" size="20" required> (영문대소문자/숫자, 8~20자)
+            </td>
+          </tr>
+          <tr>
+            <td>비밀번호 확인</td>
+            <td>
+              <input type="password" name="userPw" size="20" required>
+            </td>
+          </tr>
+          <tr>
+            <td>이름</td>
+            <td>
+              <input type="text" name="userName" required>
+            </td>
+          </tr>
+          <tr>
+            <td>주소</td>
+            <td>
+              <input type="text" id="sample6_postcode" placeholder="우편번호" required>
+              <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+              <input type="text" id="sample6_address" placeholder="주소"><br>
+              <input type="text" id="sample6_detailAddress" placeholder="상세주소">
+              <input type="text" id="sample6_extraAddress" placeholder="참고항목">
+            </td>
+          </tr>
+          <tr>
+            <td>휴대전화</td>
+            <td>
+              <select name="mobile">
+                <option value="010">010</option>
+                <option value="011">011</option>
+                <option value="016">016</option>
+                <option value="017">017</option>
+                <option value="019">019</option>
+              </select>
+              -
+              <input type="text" name="mobile2" size="4" autocomplete="off" required>
+              -
+              <input type="text" name="mobile3" size="4" autocomplete="off" required>
+            </td>
+          </tr>
+          <tr>
+            <td>일반전화</td>
+            <td>
+              <select name="phone">
+                <option value="02">02</option>
+                <option value="031">031</option>
+                <option value="032">032</option>
+                <option value="033">033</option>
+                <option value="041">041</option>
+              </select>
+              -
+              <input type="text" name="phone2" size="4" autocomplete="off">
+              -
+              <input type="text" name="phone3" size="4" autocomplete="off">
+            </td>
+          </tr>
+          <tr>
+            <td>이메일</td>
+            <td>
+              <input type="emailAdd" name="emailInfo" size="40" pattern="+@example.com" required placeholder="user@example.com">
+            </td>
+          </tr>
+        </table>
+        <h3>추가 정보</h3>
+        <table class="addional_info">
+          <tr>
+            <td>성별</td>
+            <td>
+              <input type="radio" name="gender" value="male" checked> 남성
+              <input type="radio" name="gender" value="female"> 여성
+              <input type="radio" name="gender" value="etc"> 기타
+            </td>
+          </tr>
+          <tr>
+            <td>생년월일</td>
+            <td>
+              <input type="date" name="birthday" id="bDay" min="1950-01-01" max="2023-12-31" value="1984-08-21">
+            </td>
+          </tr>
+          <tr>
+            <td>사는지역</td>
+            <td>
+              <select name="homeTown" id="home">
+                <option value="region_01">서울</option>
+                <option value="region_02">경기</option>
+                <option value="region_03">인천</option>
+                <option value="region_04">강원</option>
+                <option value="region_05">충남</option>
+                <option value="region_06">충북</option>
+                <option value="region_07">대전</option>
+                <option value="region_08">경남</option>
+                <option value="region_09">경북</option>
+                <option value="region_10">대구</option>
+                <option value="region_11">부산</option>
+                <option value="region_12">울산</option>
+                <option value="region_13">전북</option>
+                <option value="region_14">전남</option>
+                <option value="region_15">광주</option>
+                <option value="region_16">세종</option>
+                <option value="region_17">제주</option>
+                <option value="region_18">해외</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <h3>전체 동의</h3>
+        <div class="termsConditions">
+          <p>
+            <input class="allCheck" type="checkbox" name="allAgree">
+            이용약관 및 개인정보수집 및 이용, 쇼핑정보 수신(선택)에 모두 동의 합니다.
+          </p>
+
+          <p>[필수] 이용약관 동의</p>
+          <iframe src="files/terms.pdf" frameborder="0"></iframe><br>
+          <p>
+            이용약관에 동의하십니까? <input class="agreeCheck" id="check1" type="checkbox" name="agree" required> 동의함
+          </p> 
+
+          <P>[필수] 개인정보 수집 및 이용 동의</P>
+          <iframe src="files/personal.pdf" frameborder="0"></iframe> <br>
+          <p>개인정보 수집 및 이용에 동의하십니까? <input class="agreeCheck" id="check2" type="checkbox" name="agree" required> 동의함</p>
+
+          <P>[선택] 정보 수신 동의</P>
+          <iframe src="files/Marketing.pdf" frameborder="0"></iframe> <br>
+          <p>SMS 수신에 동의하십니까? <input class="agreeCheck" id="check3" type="checkbox" name="agree"> 동의함</p>
+        </div>
+        <div class="submitButton">
+          <button type="submit">가입하기</button>
+        </div>
+      </form>
+    </div>
+    <div class="footer">
+      Copyright by 나님
+    </div>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+      function sample6_execDaumPostcode() {
+        new daum.Postcode({
+          oncomplete: function(data) {
+            var addr = ''; 
+            var extraAddr = ''; 
+            if (data.userSelectedType === 'R') { 
+              addr = data.roadAddress;
+            } else { 
+              addr = data.jibunAddress;
+            }
+
+            if(data.userSelectedType === 'R'){
+              if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                extraAddr += data.bname;
+              }
+              if(data.buildingName !== '' && data.apartment === 'Y'){
+                extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+              }
+              if(extraAddr !== ''){
+                extraAddr = ' (' + extraAddr + ')';
+              }
+              document.getElementById("sample6_extraAddress").value = extraAddr;                 
+            } else {
+              document.getElementById("sample6_extraAddress").value = '';
+            }
+            document.getElementById('sample6_postcode').value = data.zonecode;
+            document.getElementById("sample6_address").value = addr;
+            document.getElementById("sample6_detailAddress").focus();
+          }
+        }).open();
+      }
+    </script>
+    <script src="js/script_signin.js"></script>
+  </body>
+</html>
