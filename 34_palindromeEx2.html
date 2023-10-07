@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+    <script>
+
+      function palCheck () {
+        let userInput = document.getElementById("userInput").value.split(""); // 문자열 배열로 만들기
+        // console.log(userInput.length, "userInput",userInput);
+        for (let i = 0; i < userInput.length; i++){ // 배열 내에 " " 없애기
+          if (userInput[i] == " ") {
+            userInput.splice(i, 1);
+          }
+        }
+        let len = userInput.length; // 변경된 배열 크기 넣어주기
+        let reverseInput = userInput.toReversed(); // 배열 뒤집어서 생성하기
+        // console.log(len, "userInput",userInput, "reverseInput", reverseInput);
+
+        if (len < 2) { // 두단어 이상 기입하게 하기
+          document.getElementById("result").innerHTML = `두단어 이상 입력 해보세요? <br>`;
+        } else {  // 두단어 이상 입력 시 입력 배열과 뒤집힌 배열 일치 여부 확인
+          for (let i = 0; i < len; i++) {
+            // console.log(i, userInput[i])
+            for (let j = 0; j < len; j++){
+              if(userInput[i] != reverseInput[j]){
+                // console.log(j, reverseInput[j]);
+                document.getElementById("result").innerHTML = `회문이 아니네요. 다시 입력 해보시겠어요? <br>`;
+              } else {
+                document.getElementById("result").innerHTML = `회문이 맞습니다!! <br>`;
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      input:invalid + span::after {
+        position: absolute;
+        content: "✖";
+        padding-left: 5px;
+      }
+      input:valid + span::after {
+        position: absolute;
+        content: "✓";
+        padding-left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <input type="text" name="" id="userInput" onchange="palCheck()" minlength="3">
+        <span class="validity"></span>
+        <!-- <button onclick="palCheck()">결과</button> -->
+        <div id="result"></div>
+    </div>
+  </body>
+</html>
