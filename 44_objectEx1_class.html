@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>객체 생성, 관리 연습</title>
+    <script>
+      // 자동차 카탈로그 
+      function Car(brandName, carName, color, carImg, description, link) {
+        this.brandName = brandName;
+        this.carName = carName;
+        this.color = color;
+        this.carImg = carImg;
+        this.description = description;
+        this.link = link;
+      }
+      // 객체를 배열에 담기
+      let cars = [];
+      new Car("");
+      cars.push(new Car(
+        "Honda",
+        "CR-V", 
+        "Blue", 
+        "/img/honda_CR_V.jpg", 
+        " ", 
+        "https://www.caranddriver.com/honda/cr-v"
+        ));
+      cars.push(new Car(
+        "Ford", 
+        "F-150", 
+        "Gray", 
+        "img/Ford_F_150.jpg", 
+        " ", 
+        "https://www.caranddriver.com/ford/f-150"
+      ));
+      cars.push(new Car(
+        "Tesla", 
+        "Model-Y", 
+        "Darkgray", 
+        "img/Tesla_Model_Y.jpg", 
+        " ", 
+        "https://www.caranddriver.com/tesla/model-y"
+      ));
+      // 화면에 카드 이미지로 출력하기
+      console.log(cars[0]);
+      console.log(cars[1]);
+      console.log(cars[2]);
+
+      let output = "";
+      cars.forEach((item) => {
+        output += `<div class="card"><img class="card-img-top" src="${item.carImg}" alt="${item.carName}" style="width:100%">`
+        output +=`<div class="card-body">
+        <h4 class="card-title">${item.brandName} ${item.carName} ${item.color} </h4>`
+        output += `<p class="card-text"> ${item.description}</p>`
+        output += `<a href="${item.link}" class="btn btn-primary">See Profile</a></div></div>`
+      });
+      
+      onload = function() {
+        document.getElementById("catalog").innerHTML = output;
+      }
+      console.log(document.getElementById("catalog"));
+    </script>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      .card {
+        width: 300px;
+        height: 550px;
+        margin-right: 20px;
+      }
+      #catalog {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      img {
+        width: 100%;
+        height: 200px;
+      }
+      .card-text {
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-3"></div>
+      <h1>차량 소개</h1>
+      <div id="catalog"></div>
+    </div>
+  </body>
+</html>
