@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회문</title>
+  <script>
+    // 유저에게 문자열을 입력받기
+    let str = "가";
+    // str = str.toLowerCase();
+    // str = str.slpit(" ").join("");
+
+    // do {
+    //   prompt("문자열을 입력하세요");
+    // } while (!isPalin(str));
+
+    isPalin(str)
+    
+    // 회문인지 아닌지 판단하는 함수
+    function isPalin(str) {
+      let strHalf = parseInt(str.length / 2);
+      for (let i = 0; i <strHalf; i++) {
+        if (str[i] == str[str.length - 1 - i]) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
+
+  // 3) 출력
+  if (isPalin(str) == true && areSame(str) == false) {
+    document.write(`입력하신 문자열 ${str}은/는 회문입니다. ${isPalin(str)} && ${!areSame(str)}`);
+  } else {
+    document.write(`입력하신 문자열 ${str}은/는 회문이 아닙니다. ${isPalin(str)} && ${!areSame(str)}`);
+  }
+
+  // 4) 모두 같은 글자를 입력한 경우 회문이 아니라고 판단하는 함수
+  // => 모두 같은 글자를 입력한 경우 true / 아니면 false
+
+  // function areSame(str) {
+  //   for (let i = 0; str.lenght - 1; i++) {
+  //     for (let j = i + 1; str.length; j++) {
+  //       if (str[i] == str[j]) {
+  //         return true;
+  //       } 
+  //     }
+  //   }
+  // }
+
+  function areSame(str) {
+    if (str.length <= 1) { // 문자열이 1 이하일 경우 모든 무자가 같다고 판단
+      return true;
+    }
+    let char0 = str[0];
+    let char1 = str[1];
+
+    if (char0 !== char1) {
+      return false;
+    }
+    let remainStr = str.slice(1);
+    areSame(remainStr);
+  }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
