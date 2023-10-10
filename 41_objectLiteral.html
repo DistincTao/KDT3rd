@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 생성 : Literal</title>
+    <script>
+      let acc = {
+        owner : "홍길동",
+        accNum : "123456-12-132323",
+        balance : 500,
+        name : "직장인 비과세 예금",
+        bankName : "신한은행",
+
+        checkBalance : function () {
+          return this.balance;
+        },
+
+        deposit : function (money) {
+          this.balance += money;
+        },
+
+        withdraw : function (money) {
+          this.balance -= money;
+        }
+      };
+
+      console.log(acc);
+      document.write(`예금주 : ${acc.owner}`);
+    </script>
+  <body>
+    
+  </body>
+</html>
