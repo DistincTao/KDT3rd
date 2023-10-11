@@ -84,6 +84,7 @@
       </tr>`
       }
       document.getElementById("output").innerHTML = table;
+      document.getElementById("searchBox").style.display = "block"
     }
 
     function searchStu() {
@@ -156,12 +157,14 @@
     </table>
     <input type="button" class="btn btn-danger" value="성적처리" onclick="scoreProces()" >
     <hr>
-    <div id="output"></div>
+    <div id="output" ></div>    
     <!-- 검색창 -->
-    <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
-      <input type="text" placeholder="Student Name..." name="search" id="find">
-      <button type="button" onclick="searchStu()"><i class="fa fa-search"></i></button>
-    </form>    
+    <div id="searchBox" style="display: none;">
+      <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+        <input type="text" placeholder="Student Name..." name="search" id="find">
+        <button type="button" onclick="searchStu()"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
   </div>
 </body>
 </html>
