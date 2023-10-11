@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>원거리 + 근거리 접근 방식</title>
+    <script>
+      onload = function() {
+        let td5 = document.getElementById("td5");
+        console.log(td5.parentElement);
+        // 3번 접근
+        let td3 = document.getElementsByClassName("tr")[0].children[2];
+        console.log(td3);
+        console.log(td3.innerHTML);
+
+        // 6번 접근
+        // let td6 = document.getElementsByClassName("tr")[1].children[2];
+        let td6 = document.getElementById("td5").nextElementSibling;
+        console.log(td6);
+        console.log(td6.innerHTML);
+
+        // 8번 접근
+        // let td8 = document.getElementsByClassName("tr")[2].children[1];
+        let td8 = document.getElementById("td9").previousElementSibling;
+        console.log(td8);
+        console.log(td8.innerHTML);
+
+        console.log(document.getElementById("td5").nextSibling.nextElementSibling.innerHTML);
+
+        // 2에 접근해서 2를 200으로
+        document.getElementById("td9"
+        ).parentElement.parentElement.children[0].children[1].innerHTML = 200;
+        document.getElementById("td9"
+        ).parentElement.previousElementSibling.previousElementSibling.children[1].innerHTML = 2000;
+        document.getElementsByClassName("tr"
+        )[0].children[1].innerHTML = 4000;
+
+        // 6번 자리에 이미지 태그
+        document.getElementById("td5"
+        ).nextElementSibling.innerHTML = "<img src=img/jjajang.jpg>";
+        document.getElementById("td9"
+        ).parentElement.previousElementSibling.children[2].innerHTML = "<img src=img/honda_CR_V.jpg>";
+      }
+    </script>
+</head>
+<body>
+  <table border = "1">
+    <tr class="tr">
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr class="tr">
+      <td>4</td>
+      <td id="td5">5</td>
+      <td>6</td>
+    </tr>
+    <tr class="tr">
+      <td>7</td>
+      <td>8</td>
+      <td id="td9">9</td>
+    </tr>
+  </table>
+  <div>
+    <input type="radio" name="gender" value="M" checked> Male
+    <input type="radio" name="gender" value="F"> Female
+  </div>
+</body>
+</html>
