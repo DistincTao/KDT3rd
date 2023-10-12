@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>navigation 객체의 geolocation을 이용해서 위치 정보 얻기</title>
+		<script>
+			function getLocation() {
+				console.log(navigator.geolocation);
+				if (!navigator.geolocation) {
+					document.getElementById('output').innerHTML =
+						'이 브라우저는 위치정보를 지원하지 않아요';
+				} else {
+					navigator.geolocation.getCurrentPosition(showPosition, outputError);
+				}
+			}
+
+			function showPosition(pos) {
+				console.log(pos);
+				console.log(pos.coords.latitude);
+				let lat = pos.coords.latitude;
+				console.log(pos.coords.longitude);
+				let long = pos.coords.longitude;
+				let timestamp = pos.timestamp;
+				let now = new Date(timestamp);
+				let DAYS = [
+					'일요일',
+					'월요일',
+					'화요일',
+					'수요일',
+					'목요일',
+					'금요일',
+					'토요일',
+				];
+				document.getElementById(
+					'output'
+				).innerHTML = `위도 : ${lat}, 경도 : ${long} <br> 
+        현재 : ${now.getFullYear()}년 ${now.getMonth() + 1}월
+        ${now.getDate()}일 ${DAYS[now.getDay()]} <br>
+        ${now.toLocaleDateString()} <br>
+        ${now.toLocaleTimeString()}`;
+			}
+
+			function outputError() {
+				document.getElementById('output').innerHTML =
+					'이 브라우저는 위치정보를 지원하지 않아요';
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="getLocation()">찾기</button>
+		<div id="output"></div>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script
+			src="https://kit.fontawesome.com/acb94ab00c.js"
+			crossorigin="anonymous"></script>
+		<script>
+			onload = function () {
+				let box1 = document.getElementById('box1');
+				box1.className = 'bg-violet'; // 클래스 이름 부여 => 덮어써짐
+				console.log(box1.classList); // 클래스 리스트 보기
+
+				let box2 = document.getElementById('box2');
+				console.log(box2.classList);
+
+				box2.classList.add('txt-white', 'box-border'); // 클래스 이름을 추가 (여러개도 가능)
+				box2.classList.remove('txt-white'); // 클래스 이름 삭제 (여러개도 가능)
+
+				let list = document.getElementById('list');
+				list.onclick = function (e) {
+					console.log(e);
+					let target = e.target;
+					console.log(target);
+					target.classList.toggle('txt-red'); // toggle() => 이벤트에 따라 켰다 껐다 함.
+				};
+
+				// 찜, 좋아요 기능 구현하기
+				let like = document.getElementsByClassName('btn')[0];
+				like.onclick = function (e) {
+					console.log(e);
+					let target = e.target;
+					console.log(target);
+					target.classList.toggle('fa-solid');
+				};
+
+				//
+			};
+		</script>
+		<style>
+			#box1 {
+				width: 100px;
+				height: 100px;
+				text-align: center;
+				line-height: 100px;
+			}
+			.box-border {
+				border: 2px solid brown;
+			}
+			.bg-violet {
+				background-color: violet;
+			}
+
+			.bg-tomato {
+				background-color: tomato;
+			}
+
+			.bg-beige {
+				background-color: beige;
+			}
+			.txt-white {
+				color: white;
+			}
+			.txt-green {
+				color: green;
+			}
+			.txt-red {
+				color: red;
+			}
+			#like {
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box1">2023</div>
+		<div class="box bg-tomato" id="box2">10월</div>
+		<ul id="list">
+			<li>list1</li>
+			<li>list2</li>
+		</ul>
+		<div class="btn">
+			<i class="fa-regular fa-heart"></i>
+		</div>
+	</body>
+</html>

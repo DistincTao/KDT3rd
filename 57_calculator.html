@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>계산기</title>
+		<script>
+				let number = document.getElementsByTagName('input');
+				console.log(number);
+				let data = 0;
+
+				function cal() {
+					addNum();
+					document.getElementById('data').innerHTML = data;
+				}
+
+				function addNum(val) {
+				number.onclick = function (e) {
+					target = e.target;
+					console.log(target);
+					data += target.value;
+					addNum();
+					};
+					return data;
+				};
+				console.log(data);
+		</script>
+		<style>
+			.container {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				width: 300px;
+				height: 500px;
+			}
+			.result {
+				width: 250px;
+				height: 150px;
+				line-height: 150px;
+			}
+			input {
+				width: 100px;
+				font-size: 30px;
+			}
+			.numbers {
+				display: flex;
+				flex-direction: column;
+			}
+			.line {
+				display: flex;
+				height: 70px;
+				justify-content: space-evenly;
+			}
+			.line div {
+				width: 70px;
+				text-align: center;
+				line-height: 70px;
+				font-size: 1.5em;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div>
+				<div id="result">ii</div>
+				<div id="data">0</div>
+			</div>
+			<div class="numbers">
+				<div class="line">
+					<input type="button" value="7" name="number"></input>
+					<input type="button" value="8" name="number"></input>
+					<input type="button" value="9" name="number"></input>
+					<input type="button" value="/" name="number"></input>
+				</div>
+				<div class="line">
+					<input type="button" value="4" name="number"></input>
+					<input type="button" value="5" name="number"></input>
+					<input type="button" value="6" name="number"></input>
+					<input type="button" value="*" name="number"></input>
+				</div>
+				<div class="line">
+					<input type="button" value="1" name="number"></input>
+					<input type="button" value="2" name="number"></input>
+					<input type="button" value="3" name="number"></input>
+					<input type="button" value="-" name="number"></input>
+				</div>
+				<div class="line">
+					<input type="button" value="C" name="number"></input>
+					<input type="button" value="0" name="number"></input>
+					<input type="button" value="=" name="number" onclick="cal()"></input>
+					<input type="button" value="+" name="number"></input>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
