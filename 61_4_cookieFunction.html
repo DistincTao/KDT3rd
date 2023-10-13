@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookie 함수 만들기</title>
+  </head>
+  <body>
+    <input type="button" name="myCookie" value="쿠키 저장" onclick="saveCookie(this.name, this.value)"/>
+    <input type="button" name="myCookie" value="쿠키 읽기" onclick="readCookie(this.name, this.value)"/>
+    <input type="button" name="myCookie" value="쿠키 저장" onclick="cookieLog(this, this.name, this.value)"/>
+  <script>
+
     // cookie를 읽어들여 로그가 없을 경우 저장하는 함수
     function cookieLog(elem, name, val) {
       let cookArr = document.cookie.split(';');
@@ -32,32 +45,7 @@
       let cookie = name + '=;expires=' + now.toUTCString();
       document.cookie = cookie;
     }
-
-		// cookie를 읽어들이는 함수
-		function readCookie(name) {
-      let cookArr = document.cookie.split(';');
-      let searchName = name
-      // console.log(searchName);
-      for (let i = 0; i < cookArr.length; i++) {
-        let cookName = cookArr[i].split('=')[0];
-        let cookValue = cookArr[i].split('=')[1];
-        // console.log(cookName, cookValue);
-        if (cookName.trim() != searchName) {
-					return true;
-        } else { 
-					return false;
-				}
-      }
-    }
-
-		// 체크돼 있으면 cookie 저장하고 닫기
-		// function closeNotice(name, value) {
-		// 	if (elem.checked) {
-		// 		// 쿠키 남기자
-		// 		console.log(elem.checked);
-		// 		saveCookie(name, value);
-		// 		close();
-		// 	} else {
-		// 	close();
-		// 	}
-		// }
+    
+  </script>
+  </body>
+</html>

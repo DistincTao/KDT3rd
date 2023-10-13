@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="js/cookie.js"></script>
+		<title>Document</title>
+		<script>
+			// 	// 유저가 체크박스에 체크를 한다면 => 쿠키를 남기고 닫아야 함
+			// 	// 유저가 체크박스에 체크하지 않았다면 => 그냥 닫아야 함
+			
+			function closeNotice(name, value) {
+				let elem = document.getElementsByTagName("input")[0];
+				if (elem.checked == true) {
+					// 쿠키 남기자
+					saveCookie(name, value);
+					close();
+				} else {
+				close();
+				}
+			}
+
+		</script>
+		<style></style>
+	</head>
+	<body>
+		<div class="notice">
+			<h1>공지사항</h1>
+			<div>점심 맛있게 먹자!</div>
+		</div>
+		<div><input type="checkbox" />하루동안 이 창 열지 않기</div>
+		<div>
+			<input class="close" name="notice", type="button" value="닫기" onclick="closeNotice(this.name, this.value)" />
+		</div>
+	</body>
+</html>
