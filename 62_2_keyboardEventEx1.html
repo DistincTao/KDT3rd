@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>키보드 관련 이벤트</title>
+	</head>
+	<body>
+		<div>
+			<input type="text" id="userInput" onkeyup="countTxt(this)" />
+			<div><span></span>자 입력 중</div>
+		</div>
+		<hr />
+		<div>
+			<input type="text" id="txt2" />
+		</div>
+		<div>
+			<input type="text" id="txt3" />
+		</div>
+		<script>
+			function countTxt(obj) {
+				document.getElementsByTagName('span')[0].innerHTML = obj.value.length;
+			}
+
+			// focus :
+			// blur : focus를 잃었을 때
+
+			let inputTag2 = document.getElementById('txt2');
+			inputTag2.addEventListener('focus', () => {
+				inputTag2.style.backgroundColor = 'powderblue';
+			});
+			inputTag2.addEventListener('blur', () => {
+				inputTag2.style.backgroundColor = 'darkgray';
+			});
+		</script>
+	</body>
+</html>
