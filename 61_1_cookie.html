@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>쿠키의 일반적인 운용</title>
+		<script>
+			function saveCookie() {
+				// 쿠키이름 = 값; expires = 쿠키 만료일; [domain = 도메인 명]; [path=쿠키저장경로];
+				let myCookie = '';
+				let now = new Date();
+				// now.setSeconds(now.getSeconds() + 10); // 만료 기간를 설정
+				now.setDate(now.getDate() + 1);
+
+				console.log(typeof now.toUTCString());
+				myCookie = 'myCooky=Eugene;expires=' + now.toUTCString();
+				document.cookie = myCookie; // 쿠키 저장
+
+				let yourCookie = ' ';
+				let now2 = new Date();
+				now2.setMinutes(now2.getMinutes() + 60);
+				yourCookie = 'yourCooky=Egn;expires=' + now2.toUTCString();
+				document.cookie = yourCookie;
+
+				let ourCookie = ' ';
+				let now3 = new Date();
+				now3.setMinutes(now3.getMinutes() + 60);
+				ourCookie = 'ourCooky=Egn;expires=' + now3.toUTCString();
+				document.cookie = ourCookie;
+			}
+
+			function readCookie() {
+				let cook = document.cookie; // myCooky=Eugene; yourCooky=Egn; ourCooky=Egn
+				// console.log(cook);
+				// console.log(cook.split(';'));
+				let cookArr = cook.split(';');
+				console.log(cookArr[0].split('=')[1]);
+
+				let searchName = 'myCooky';
+				let isFind = false;
+
+				for (let i = 0; i < cookArr.length; i++) {
+					let cookName = cookArr[i].split('=')[0];
+					let cookValue = cookArr[i].split('=')[1];
+					console.log(cookName, cookValue);
+					if (cookName.trim() == searchName) {
+						isFind = true;
+						alert(`찾았다. ${cookValue}`);
+					}
+				}
+				if (!isFind) {
+					alert('그런 쿠키 없습니다.');
+				}
+			}
+
+			function delCookie() {
+				// myCooky 쿠키만 삭제
+				// 삭제할 쿠키의 expires 값을 현재 날짜 , 시간으로 재설정하여 다시 저장 (overwrite)
+				let delName = 'myCooky';
+				let now = new Date();
+				let cookie = delName + '=;expires=' + now.toUTCString();
+				document.cookie = cookie;
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="쿠키 저장" onclick="saveCookie()" />
+		<input type="button" value="쿠키 읽기" onclick="readCookie()" />
+		<input type="button" value="쿠키 삭제" onclick="delCookie()" />
+	</body>
+</html>

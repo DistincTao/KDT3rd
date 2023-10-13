@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			function closeNotice() {
+				// 유저가 체크박스에 체크를 한다면 => 쿠키를 남기고 닫아야 함
+				// 유저가 체크박스에 체크하지 않았다면 => 그냥 닫아야 함
+				if (document.getElementsByTagName('input')[0].checked == true) {
+					// 쿠키 남기자
+					let myCookie = '';
+					let now = new Date();
+					now.setDate(now.getDate() + 1);
+					// console.log(typeof now.toUTCString());
+					myCookie = 'notice=Y;expires=' + now.toUTCString();
+					document.cookie = myCookie;
+				}
+				close();
+			}
+		</script>
+		<style></style>
+	</head>
+	<body>
+		<div class="notice">
+			<h1>공지사항</h1>
+			<div>점심 맛있게 먹자!</div>
+		</div>
+		<div><input type="checkbox" />하루동안 이 창 열지 않기</div>
+		<div>
+			<input class="close" type="button" value="닫기" onclick="closeNotice()" />
+		</div>
+		<!-- <script>
+			let notice = document.cookie;
+			let noticeCookie = '';
+			let now = new Date();
+			let checkbox = document.getElementsByTagName('input');
+			console.log(checkbox);
+			let isChecked = checkbox[0].checked;
+			console.log(isChecked);
+
+			function closeNotice() {
+				if (isChecked == true) {
+					now.seDate(now.getDate() + 1);
+					noticeCookie = 'noticeCookie=24hr;expires=' + now.toUTCString();
+					document.cookie = noticeCookie;
+				}
+				close();
+			}
+		</script> -->
+	</body>
+</html>
