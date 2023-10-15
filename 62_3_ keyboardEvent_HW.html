@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/acb94ab00c.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+      function showLargeImg(src) {
+        let showImg = document.getElementsByClassName("imgs-large")[0];
+        // console.log(showImg);
+        showImg.src = src;
+      }
+
+      function showDetails() {
+        let details = document.getElementsByClassName("container")[1];
+        let showDetails = document.getElementsByClassName("details-content")[0];
+        showDetails.style.display = "block";
+        details.style.height = "300px";
+        showDetails.addEventListener("mouseleave", (e) => {
+          showDetails.style.display = "none";
+          details.style.height = "50px";
+        });
+      }
+
+    </script>
+    <style>
+      .container {
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        width: 800px;
+        margin: 50px;
+      }
+      .imgs {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .imgs-large {
+        width: 500px;
+        height: 300px;
+        margin: 20px;
+      }
+      .imgs-small {
+        width: 100px;
+        margin: 5px;
+      }
+      .details {
+        height: 50px;
+        padding: 10px;
+      }
+      .details-content {
+        display: none;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="imgs">
+        <img class="imgs-large" src="/img/Ford_F_150.jpg" alt="큰사진">
+      </div>
+      <div class="imgs">
+        <img class="imgs-small" src="/img/Ford_F_150.jpg" alt="포드" onmouseover="showLargeImg(this.src)">
+        <img class="imgs-small" src="/img/honda_CR_V.jpg" alt="혼다" onmouseover="showLargeImg(this.src)">
+        <img class="imgs-small" src="/img/Tesla_Model_Y.jpg" alt="테슬라" onmouseover="showLargeImg(this.src)">
+        <img class="imgs-small" src="/img/audi_r8.webp" alt="테슬라" onmouseover="showLargeImg(this.src)">
+        <img class="imgs-small" src="/img/Volvo_XC90.jpeg" alt="테슬라" onmouseover="showLargeImg(this.src)">
+        <img class="imgs-small" src="/img/genesis_g80.jpeg" alt="테슬라" onmouseover="showLargeImg(this.src)">
+      </div>
+    </div>
+    <div class="container">
+      <div class="details" >
+        <p onmouseenter="showDetails()"><i class="fa-solid fa-circle-info" onmouseenter="showDetails()"></i> 자세히 보기</p>
+        <p class="details-content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate excepturi nisi aut! Molestias mollitia quos nulla, 
+        voluptatibus necessitatibus, eum officiis officia atque dolorem, facilis repudiandae distinctio architecto cum in? Quia.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque molestias adipisci cumque quidem, maiores quasi ad reiciendis 
+        dolore voluptas explicabo sed sint corporis. Praesentium nobis atque quos odit vitae impedit. Lorem, ipsum dolor sit amet 
+        consectetur adipisicing elit. A eveniet laudantium beatae. Laudantium, ducimus enim. Error nesciunt vitae sint debitis 
+        autem ullam soluta minima, sequi sapiente saepe? Vero, corrupti enim?
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
