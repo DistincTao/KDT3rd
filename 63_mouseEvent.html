@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>마우스 커서를 따라다니는 아이콘 만들기</title>
+		<script
+			src="https://kit.fontawesome.com/acb94ab00c.js"
+			crossorigin="anonymous"></script>
+		<script>
+			onload = function () {
+				let box = document.getElementById('box');
+				// box.addEventListener('click', (evt) => console.log(evt));
+
+				let tail = document.getElementById('tail');
+				console.log(tail);
+
+				box.addEventListener('mousemove', (evt) => {
+					console.log(evt);
+					tail.style.display = 'block';
+					tail.style.top = `${evt.clientY + 10}px`;
+					tail.style.left = `${evt.clientX + 10}px`;
+				});
+			};
+		</script>
+		<style>
+			#box {
+				width: 300px;
+				height: 300px;
+				border: 10px solid slateblue;
+				position: relative;
+			}
+			#tail {
+				width: 50px;
+				height: 50px;
+				color: red;
+				position: absolute;
+				display: none;
+			}
+		</style>
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="tail">
+			<span id="heart"><i class="fa-regular fa-heart"></i></span>
+		</div>
+	</body>
+</html>
