@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			function mySelect(obj) {
+				console.log(obj.value);
+			}
+
+			function mySelect2() {
+				let cars2 = document.getElementById('cars2');
+				console.log(cars2); // select tag 전체
+				console.log(cars2.options); // HTMLoptionsCollection (배열형태로)
+				console.log(cars2.options[cars2.selectedIndex]); // 선택 된(selectedIndex 번째) Option 태그를 가져옴
+				console.log(cars2.options[cars2.selectedIndex].value);
+			}
+		</script>
+	</head>
+	<body>
+		<select name="cars" id="cars" onchange="mySelect(this)">
+			<option value="volvo">볼보</option>
+			<option value="hyundai">현대</option>
+			<option value="tesla">테슬라</option>
+		</select>
+
+		<select name="cars2" id="cars2" onchange="mySelect2()">
+			<option value="honda">혼다</option>
+			<option value="audi">아우디</option>
+			<option value="ford">포드</option>
+		</select>
+	</body>
+</html>
