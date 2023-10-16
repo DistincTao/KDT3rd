@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="JS/common.js"></script>
+		<title>get 방식으로 데이터 주고 받기 (sub Page)</title>
+		<script>
+			console.log(location.href);
+			let url = location.href;
+
+			let queryString = url.split('?')[1];
+			let queryStringArr = queryString.split('&');
+			console.log(queryStringArr);
+
+			let base = 0;
+			let height = 0;
+
+			queryStringArr.forEach(function (item) {
+				console.log(item);
+				if (item.split('=')[0] == 'base') {
+					base = item.split('=')[1];
+				} else if (item.split('=')[0] == 'height') {
+					height = item.split('=')[1];
+				}
+			});
+			console.log(base, height);
+
+			document.write(
+				`밑변 = ${base}m, 높이 = ${height}m 인 삼각형의 넓이 => ${
+					(base * height) / 2
+				}m<sup>2</sup>`
+			);
+		</script>
+	</head>
+	<body></body>
+</html>

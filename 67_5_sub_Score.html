@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="JS/common.js"></script>
+		<title>get 방식으로 데이터 주고 받기 (sub Page)</title>
+		<script>
+			let name = getParameter('name');
+			let kor = getParameter('kor');
+			let eng = getParameter('eng');
+			let math = getParameter('math');
+
+			// let paraArr = ['name', 'kor', 'eng', 'math'];
+			// let scores = new Array(4);
+			// for (let i = 0; i < scores.length; i++) {
+			// 	scores[i] = decodeURIComponent(getParameter(paraArr[i]));
+			// }
+
+			// console.log(scores);
+			calScores(name, kor, eng, math);
+
+			// 화면에 출력하기 =>
+		</script>
+	</head>
+	<body></body>
+</html>

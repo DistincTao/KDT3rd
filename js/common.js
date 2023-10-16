@@ -50,14 +50,57 @@ function readCookie(name) {
 	}
 }
 
-// 체크돼 있으면 cookie 저장하고 닫기
-// function closeNotice(name, value) {
-// 	if (elem.checked) {
-// 		// 쿠키 남기자
-// 		console.log(elem.checked);
-// 		saveCookie(name, value);
-// 		close();
-// 	} else {
-// 	close();
-// 	}
-// }
+function getParameter(par) {
+	let returnVal = null;
+	let url = location.href;
+
+	if (url.indexOf('?') != -1) {
+		let queryString = url.split('?')[1];
+		let queryArr = queryString.split('&');
+
+		// for (let i = 0; i < queryArr.length; i++) {
+		// 	returnVal = queryArr[i].split('=');
+		// 	for (let i = 0; i < returnVal.length; i++) {
+		// 		if (returnVal[i] == par) {
+		// 			return returnVal[1];
+		// 		}
+		// 	}
+		// }
+
+		for (let item of queryArr) {
+			if (item.split('=')[0] == par) {
+				returnVal = item.split('=')[1];
+				break; // 파라미터 값을 찾으면 해당 반복문 블록을 빠져 나감
+			}
+		}
+		return returnVal;
+	}
+}
+
+function calScores(par1, par2, par3, par4) {
+	let name = decodeURIComponent(par1);
+	let total = Number(par2) + Number(par3) + Number(par4);
+	let avg = (total / 3).toFixed(2);
+	let grade = 'F';
+	switch (Math.floor(avg / 10) + 1) {
+		case 10:
+		case 9:
+			grade = 'A';
+			break;
+		case 8:
+			grade = 'B';
+			break;
+		case 7:
+			grade = 'C';
+			break;
+		case 6:
+			grade = 'D';
+			break;
+		default:
+			grade;
+	}
+	console.log(name, par2, par3, par4, total, avg, grade);
+	let output = `<table><tr><td>이름</td><td>국어</td><td>영어</td><td>수학</td><td>총점</td><td>평균</td><td>학점</td></tr><tr>`;
+	output += `<td>${name}</td><td>${par2}</td><td>${par3}</td><td>${par4}</td><td>${total}</td><td>${avg}</td><td>${grade}</td></tr></table>`;
+	document.write(output);
+}
